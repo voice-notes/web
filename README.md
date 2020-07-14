@@ -2,6 +2,8 @@
 
 React front-end for Taped It - a voice-notes app for integration with [Slack](https://slack.com).
 
+Check the app out [here](https://tapedit.netlify.app/)!
+
 ## Getting started
 
 To get the code:
