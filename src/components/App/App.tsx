@@ -5,8 +5,7 @@ import './App.css';
 export const App = () => {
   return (
     <div className="App">
-      <Hello appName="Taped It"/>
-      <Hello appName="Testing"/>
+      <Hello appName="Taped it"/>
     </div>
   );
 };
