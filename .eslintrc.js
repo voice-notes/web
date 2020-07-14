@@ -30,5 +30,11 @@ module.exports = {
     ],
     "rules": {
       "prettier/prettier": ["error", { "singleQuote": true }]
+    },
+    "settings": {
+        "react": {
+          "pragma": "React",
+          "version": "detect"
+        }
     }
 };
