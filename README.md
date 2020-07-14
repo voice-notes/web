@@ -65,7 +65,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 #### CI / CD
 
-This project uses continuous integration with Circle CI. 
+This project uses continuous integration with [Circle CI](https://circleci.com/). 
 
 See `.circleci/config.yml` for configurations.
 
@@ -73,6 +73,6 @@ See `.circleci/config.yml` for configurations.
 
 The app is deployed via [Netlify](https://www.netlify.com/).
 
-When you push to a branch, Netlify creates a preview of the production build of the app. You can view this under `Deploys` in the Netlify UI.
+When we push to a branch, Netlify creates a preview of the production build of the app. You can view this under `Deploys` in the Netlify UI.
 
 The full production build will only be deployed once pull requests are merged to the master branch.
