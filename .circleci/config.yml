@@ -25,9 +25,9 @@ jobs:
             - run: yarn test
             - run: yarn build
 workflows:
-    build-and-test:
+    branch-build:
       jobs:
-        - build-and-test
+        - build-and-test:
             filters:
               branches: 
                 ignore: 
