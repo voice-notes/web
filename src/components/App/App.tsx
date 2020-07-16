@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Hello } from '../Hello/Hello'
+import { Header } from '../Header/header'
 import './App.css';
 
 export const App = () => {
   return (
     <div className="App">
-      <Hello appName="Taped it"/>
+      <Header img="#">Taped It</Header>
     </div>
   );
 };
