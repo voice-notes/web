@@ -8,7 +8,7 @@ interface HeaderProps {
 
 export const Header: FunctionComponent<HeaderProps> = (props) => {
   return(
-    <div className="header">
+    <div className="header" style={ {backgroundImage: `${props.img}`} } >
       <h1>
         { props.children }
       </h1>
