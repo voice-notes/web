@@ -1,0 +1,42 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build:
+    executor:
+      name: node/default
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn install
+            - run: yarn test
+            - run: yarn build
+            - run: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --dir=build --message="$CIRCLE_BRANCH@$(git log --pretty='%h %s' -n 1 $CIRCLE_SHA1)"
+  deploy:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn install
+            - run: yarn test
+            - run: yarn build
+            - run: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --dir=build --prod --message="$CIRCLE_BRANCH@$(git log --pretty='%h %s' -n 1 $CIRCLE_SHA1)"
+workflows:
+    branch-build:
+      jobs:
+        - build:
+            filters:
+              branches: 
+                ignore: 
+                  - master
+        - deploy:
+            filters:
+              branches: 
+                only: 
+                  - master
+
+     
