@@ -2,31 +2,31 @@ module.exports = {
     "env": {
         "browser": true,
         "es6": true,
-        "jest": true
+        "jest": true,
     },
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "prettier/@typescript-eslint",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
     ],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
         },
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
     },
     "plugins": [
         "react",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
     ],
     "rules": {
       "prettier/prettier": ["error", { "singleQuote": true }], 
@@ -35,7 +35,7 @@ module.exports = {
     "settings": {
         "react": {
           "pragma": "React",
-          "version": "detect"
+          "version": "detect",
         }
     }
 };
