@@ -5,7 +5,7 @@ import './App.css';
 export const App = () => {
   return (
     <div className="App">
-      <Header img="#">Taped It</Header>
+      <Header img="../../assets/cassette.png">Taped It</Header>
     </div>
   );
 };
