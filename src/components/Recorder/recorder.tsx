@@ -28,7 +28,7 @@ export class Recorder extends React.Component<emptyProps, recorderState> {
   render() {
     return (
       <div>
-        {/* <RecordingStatus isRecording = {this.state.isRecording}/> */}
+        <RecordingStatus isRecording = {this.state.isRecording}/>
         <button id="record" onClick={() => this.toggleRecording()}>
           {this.state.buttonText} recording
         </button>
