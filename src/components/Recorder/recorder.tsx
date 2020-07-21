@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { RecordingStatus } from '../RecordingStatus/recordingStatus'
 
-type recordingState = {
+type recorderState = {
   isRecording: boolean;
   buttonText: string;
 };
 
 interface emptyProps {}
 
-export class OptionBar extends React.Component<emptyProps, recordingState> {
-  constructor(props: emptyProps, state: recordingState) {
+export class Recorder extends React.Component<emptyProps, recorderState> {
+  constructor(props: emptyProps, state: recorderState) {
     super(props, state);
     this.state = {
       isRecording: false,

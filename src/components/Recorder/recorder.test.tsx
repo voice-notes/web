@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { OptionBar } from './optionBar';
+import { Recorder } from './recorder';
 
-describe('Options bar', () => {
+describe('Recorder', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    wrapper = shallow(<OptionBar />);
+    wrapper = shallow(<Recorder />);
   });
 
   it('renders record button', () => {
