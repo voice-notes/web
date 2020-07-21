@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './recordingStatus.css'
 
 interface StatusProps {
   isRecording: boolean

@@ -13,4 +13,5 @@ describe('RecordingStatus', () => {
     const wrapper = shallow(<RecordingStatus isRecording={true} />);
     expect(wrapper.find('.status').text()).toEqual('Recording...');
   })
+
 })
