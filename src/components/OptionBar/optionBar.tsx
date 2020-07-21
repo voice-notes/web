@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { runInThisContext } from 'vm';
 
 type recordingState = {
   isRecording: boolean;
