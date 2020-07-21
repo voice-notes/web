@@ -13,11 +13,16 @@ describe('Options bar', () => {
     expect(wrapper.find('button').text()).toEqual('Start recording');
   });
 
+  it('updates the button text', () => {
+    wrapper.find('#record').simulate('click');
+    expect(wrapper.find('button').text()).toEqual('Stop recording');
+  });
+
   it('is not recording by default', () => {
     expect(wrapper.state('isRecording')).toEqual(false);
   });
 
-  it('starts a recording', () => {
+  it('toggles the state of a recording', () => {
     wrapper.find('#record').simulate('click');
     expect(wrapper.state('isRecording')).toEqual(true);
   });
