@@ -4,7 +4,7 @@ export class OptionBar extends React.Component {
   render() {
     return(
       <div>
-        <button>Start recording</button>
+        <button id='record'>Start recording</button>
       </div>
     )
   }
