@@ -12,18 +12,16 @@ export class OptionBar extends React.Component<emptyProps, recordingState> {
     super(props, state);
     this.state = {
       isRecording: false,
-      buttonText: "Start",
+      buttonText: 'Start',
     };
   }
 
   toggleRecording() {
-    if(this.state.isRecording) {
-      this.setState({isRecording: false });
-      this.setState({buttonText: "Start"});
-    } else {
-      this.setState({ isRecording: true });
-      this.setState({ buttonText: "Stop"});
+    if (this.state.isRecording) {
+      this.setState({ isRecording: false, buttonText: 'Start' });
+      return;
     }
+    this.setState({ isRecording: true, buttonText: 'Stop' });
   }
 
   render() {

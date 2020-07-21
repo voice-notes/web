@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Header } from '../Header/header';
-import { OptionBar } from '../OptionBar/optionBar'
+import { OptionBar } from '../OptionBar/optionBar';
 import './App.css';
 
 export const App = () => {

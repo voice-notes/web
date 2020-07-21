@@ -31,5 +31,5 @@ describe('Options bar', () => {
     wrapper.find('#record').simulate('click');
     wrapper.find('#record').simulate('click');
     expect(wrapper.state('isRecording')).toEqual(false);
-  })
+  });
 });
