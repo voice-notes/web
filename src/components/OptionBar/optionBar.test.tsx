@@ -3,14 +3,28 @@ import { shallow } from 'enzyme';
 import { OptionBar } from './optionBar';
 
 describe('Options bar', () => {
+  let wrapper: any;
+
+  beforeEach(() => {
+    wrapper = shallow(<OptionBar />);
+  });
+
   it('renders record button', () => {
-    const wrapper = shallow(<OptionBar />);
     expect(wrapper.find('button').text()).toEqual('Start recording');
   });
 
+  it('is not recording by default', () => {
+    expect(wrapper.state('isRecording')).toEqual(false);
+  });
+
   it('starts a recording', () => {
-    const wrapper = shallow(<OptionBar />);
     wrapper.find('#record').simulate('click');
     expect(wrapper.state('isRecording')).toEqual(true);
   });
+
+  it('stops a recording', () => {
+    wrapper.find('#record').simulate('click');
+    wrapper.find('#record').simulate('click');
+    expect(wrapper.state('isRecording')).toEqual(false);
+  })
 });
