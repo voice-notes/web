@@ -3,10 +3,9 @@ import { shallow } from 'enzyme';
 import { render } from '@testing-library/react';
 import { Header } from './header';
 
-
 it('renders correctly', () => {
-    const container = render(<Header img="test">Test</Header>)
-    expect(container).toMatchSnapshot();
+  const container = render(<Header img="test">Test</Header>);
+  expect(container).toMatchSnapshot();
 });
 
 describe('Header', () => {

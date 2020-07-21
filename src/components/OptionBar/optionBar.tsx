@@ -1,32 +1,30 @@
-import React, { FunctionComponent } from 'react';
+import * as React from 'react';
 
 type recordingState = {
-  isRecording: boolean
-}
+  isRecording: boolean;
+};
 
 interface emptyProps {}
 
 export class OptionBar extends React.Component<emptyProps, recordingState> {
   constructor(props: emptyProps, state: recordingState) {
-    super(props, state)
+    super(props, state);
     this.state = {
-      isRecording: false
-    }
+      isRecording: false,
+    };
   }
 
   startRecording() {
-    this.setState({isRecording: true})
+    this.setState({ isRecording: true });
   }
 
   render() {
-    return(
+    return (
       <div>
-        <button 
-        id='record'
-        onClick={() => this.startRecording()}>
+        <button id="record" onClick={() => this.startRecording()}>
           Start recording
         </button>
       </div>
-    )
+    );
   }
 }
