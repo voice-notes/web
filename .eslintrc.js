@@ -30,8 +30,14 @@ module.exports = {
     ],
     "rules": {
       "prettier/prettier": ["error", { "singleQuote": true }], 
-      "prettier/prettier": ["error", { "trailingComma": "es5" }],
-    },
+      "comma-dangle": [2, {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore",
+      }]
+    },  
     "settings": {
         "react": {
           "pragma": "React",
