@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import { ReactMic } from 'react-mic';
+import { RecordingTimer } from '../Timer/timer';
+
 
 type recorderState = {
   isRecording: boolean;
@@ -48,6 +50,7 @@ export class Recorder extends React.Component<emptyProps, recorderState> {
         <button id="record" onClick={() => this.toggleRecording()}>
           {this.state.buttonText} recording
         </button>
+        <RecordingTimer isRecording = {this.state.isRecording}/>
       </div>
     );
   }
