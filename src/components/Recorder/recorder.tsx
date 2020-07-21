@@ -2,6 +2,7 @@ import * as React from 'react';
 import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
+import './recorder.css'
 
 
 type recorderState = {
@@ -38,7 +39,7 @@ export class Recorder extends React.Component<emptyProps, recorderState> {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <RecordingStatus isRecording = {this.state.isRecording}/>
         <ReactMic 
           record={this.state.isRecording}
