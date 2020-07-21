@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { RecordingStatus } from '../RecordingStatus/recordingStatus'
 
 type recordingState = {
   isRecording: boolean;
@@ -27,6 +28,7 @@ export class OptionBar extends React.Component<emptyProps, recordingState> {
   render() {
     return (
       <div>
+        {/* <RecordingStatus isRecording = {this.state.isRecording}/> */}
         <button id="record" onClick={() => this.toggleRecording()}>
           {this.state.buttonText} recording
         </button>
