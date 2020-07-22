@@ -20,6 +20,7 @@ export class RecordingTimer extends React.Component<TimerProps> {
 
   timerController({ start, stop, reset }: TimerMethods) {
     if (this.props.isRecording) { start() } 
+    if (!this.props.isRecording) { stop() }
   }
 
   render() {
