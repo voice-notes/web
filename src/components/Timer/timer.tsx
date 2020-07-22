@@ -13,27 +13,28 @@ interface TimerMethods {
   reset: () => void; 
 }
 
-export const RecordingTimer: React.FunctionComponent<TimerProps> = (
-    props: TimerProps
-  ) => {
-    const timerController = ({ start, stop, reset }: TimerMethods) => {
-      if (this.props.isRecording) { start() } 
-    }
-    render() {
-  return (
-    <Timer
-      startImmediately={false} >
-        {({ start, stop, reset }: TimerMethods) => (
-        <React.Fragment>  
-          <Timer.Minutes />:
-          <Timer.Seconds />   
-          <button onClick={start}>Start</button>
-          <button onClick={stop}>Stop</button>
-          <button onClick={reset}>Reset</button>
-        </React.Fragment>  
-      )}  
-    </Timer>
-  )}
-} 
+export class RecordingTimer extends React.Component<TimerProps> {
+  constructor(props:TimerProps) {
+    super(props)
+  }
+
+  timerController({ start, stop, reset }: TimerMethods) {
+    if (this.props.isRecording) { start() } 
+  }
+
+  render() {
+    return (
+      <Timer
+        startImmediately={false} >
+          {({ start, stop, reset }: TimerMethods) => (
+          <React.Fragment>  
+            <Timer.Minutes />:
+            <Timer.Seconds />   
+            { this.timerController({ start, stop, reset }) }
+          </React.Fragment>  
+        )}  
+      </Timer>
+    )}
+}
 
 
