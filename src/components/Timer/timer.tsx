@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Timer from 'react-compound-timer';
 import { start } from 'repl';
+import { render } from '@testing-library/react';
 
 interface TimerProps {
   isRecording: boolean;
@@ -15,9 +16,10 @@ interface TimerMethods {
 export const RecordingTimer: React.FunctionComponent<TimerProps> = (
     props: TimerProps
   ) => {
-    timerController(start: () => void, stop: void, reset: void) {
+    const timerController = ({ start, stop, reset }: TimerMethods) => {
       if (this.props.isRecording) { start() } 
     }
+    render() {
   return (
     <Timer
       startImmediately={false} >
@@ -31,7 +33,7 @@ export const RecordingTimer: React.FunctionComponent<TimerProps> = (
         </React.Fragment>  
       )}  
     </Timer>
-  )
+  )}
 } 
 
 
