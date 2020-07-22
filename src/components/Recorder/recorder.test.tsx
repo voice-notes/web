@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Recorder } from './recorder';
+
 jest.mock('react-mic', () => {
   return {
     ReactMic: () => {
