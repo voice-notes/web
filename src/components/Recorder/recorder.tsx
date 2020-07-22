@@ -12,7 +12,7 @@ type recorderState = {
 interface EmptyProps {
 }
 
-export class Recorder extends React.Component<RecorderProps, recorderState> {
+export class Recorder extends React.Component<EmptyProps, recorderState> {
   constructor(props: EmptyProps, state: recorderState) {
     super(props, state);
     this.state = {
