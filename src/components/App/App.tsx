@@ -6,7 +6,7 @@ import './App.css';
 export const App = () => {
   return (
     <div className="App">
-      <Header img="../../assets/cassette.png">Taped It</Header>
+      <Header img="/assets/tape.svg">Taped It</Header>
       <Recorder />
     </div>
   );

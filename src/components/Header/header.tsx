@@ -10,7 +10,7 @@ export const Header: React.FunctionComponent<HeaderProps> = (
   props: HeaderProps
 ) => {
   return (
-    <div className="header" style={{ backgroundImage: `${props.img}` }}>
+    <div className="header" style={{ backgroundImage: `url(${props.img})` }}>
       <h1>{props.children}</h1>
     </div>
   );
