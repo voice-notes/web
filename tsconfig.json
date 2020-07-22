@@ -22,7 +22,7 @@
   "include": [
     "src"
   ],
-  "ignore": [
+  "exclude": [
     "node_modules"
   ]
 }

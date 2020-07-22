@@ -1,6 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { Recorder } from './recorder';
+
+
+jest.mock('react-mic', () => ({
+  ReactMic: {
+    window: {
+      AudioContext: jest.fn().mockImplementation(() => {
+        return {}
+      })
+    }
+  }
+}))
+
 
 describe('Recorder', () => {
   let wrapper: any;
@@ -10,6 +22,7 @@ describe('Recorder', () => {
   });
 
   it('renders record button', () => {
+    const wrapper = shallow(<Recorder />);
     expect(wrapper.find('button').text()).toEqual('Start recording');
   });
 
