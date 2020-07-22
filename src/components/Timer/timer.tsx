@@ -27,7 +27,7 @@ export class RecordingTimer extends React.Component<TimerProps> {
 
   render() {
     return (
-      <Timer startImmediately={false}>
+      <Timer startImmediately={false} formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`}>
         {({ start, stop, reset }: TimerMethods) => (
           <React.Fragment>
             <Timer.Minutes />:
