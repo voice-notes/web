@@ -2,8 +2,7 @@ import * as React from 'react';
 import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
-import './recorder.css'
-
+import './recorder.css';
 
 type recorderState = {
   isRecording: boolean;
@@ -32,7 +31,7 @@ export class Recorder extends React.Component<emptyProps, recorderState> {
   onData(recordedBlob: any) {
     console.log('chunk of real-time data is: ', recordedBlob);
   }
- 
+
   onStop(recordedBlob: any) {
     console.log('recordedBlob is: ', recordedBlob);
   }
@@ -40,18 +39,19 @@ export class Recorder extends React.Component<emptyProps, recorderState> {
   render() {
     return (
       <div className="container">
-        <RecordingStatus isRecording = {this.state.isRecording}/>
-        <ReactMic 
+        <RecordingStatus isRecording={this.state.isRecording} />
+        <ReactMic
           record={this.state.isRecording}
-          className='sound-wave'
+          className="sound-wave"
           onStop={this.onStop}
           onData={this.onData}
           strokeColor="#000000"
-          backgroundColor="#FF4081" />
+          backgroundColor="#FF4081"
+        />
         <button id="record" onClick={() => this.toggleRecording()}>
           {this.state.buttonText} recording
         </button>
-        <RecordingTimer isRecording = {this.state.isRecording}/>
+        <RecordingTimer isRecording={this.state.isRecording} />
       </div>
     );
   }
