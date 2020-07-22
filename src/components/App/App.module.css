@@ -1,6 +1,6 @@
 .app {
-  text-align: center;
   background-color: #262626;
-  min-height: 100vh;
   display: flex;
+  min-height: 100vh;
+  text-align: center;
 }
