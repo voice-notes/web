@@ -1,18 +1,13 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { Recorder } from './recorder';
-
-
-jest.mock('react-mic', () => ({
-  ReactMic: {
-    window: {
-      AudioContext: jest.fn().mockImplementation(() => {
-        return {}
-      })
+jest.mock('react-mic', () => {
+  return {
+    ReactMic: () => {
+      return <div></div>;
     }
   }
-}))
-
+})
 
 describe('Recorder', () => {
   let wrapper: any;
