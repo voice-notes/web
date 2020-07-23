@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
-import './App.css';
+import styles from './App.module.css';
 
 export const App = () => {
   return (
-    <div className="App">
-      <Header img="/assets/tape.svg">Taped It</Header>
+    <div className={styles.app}>
+      <Header>Taped It</Header>
       <Recorder />
     </div>
   );

@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint './src/**/*.{ts,tsx}'"
+    "lint": "eslint './src/**/*.{ts,tsx,js,jsx}' && stylelint './src/**/*.css'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,8 +50,13 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
-    "ts-jest": "^26.1.1"
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "ts-jest": "^26.1.1",
+    "typescript-plugin-css-modules": "^2.4.0"
   }
 }

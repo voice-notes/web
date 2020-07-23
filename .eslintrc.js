@@ -10,6 +10,7 @@ module.exports = {
         "plugin:@typescript-eslint/eslint-recommended",
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended",
+        "plugin:css-modules/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -27,6 +28,7 @@ module.exports = {
         "react",
         "@typescript-eslint",
         "prettier",
+        "css-modules",
     ],
     "rules": {
       "prettier/prettier": ["error", { "singleQuote": true }], 
@@ -43,5 +45,5 @@ module.exports = {
           "pragma": "React",
           "version": "detect",
         }
-    }
+    },
 };
