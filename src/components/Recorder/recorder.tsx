@@ -20,7 +20,6 @@ export class Recorder extends React.Component<EmptyProps, recorderState> {
       buttonText: 'Start',
     };
   }
-
   toggleRecording() {
     if (this.state.isRecording) {
       this.setState({ isRecording: false, buttonText: 'Start' });

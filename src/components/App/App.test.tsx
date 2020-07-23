@@ -6,9 +6,9 @@ jest.mock('react-mic', () => {
   return {
     ReactMic: () => {
       return <div></div>;
-    }
-  }
-})
+    },
+  };
+});
 
 test('renders App', () => {
   const container = render(<App />);

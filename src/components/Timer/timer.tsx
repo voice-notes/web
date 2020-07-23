@@ -12,7 +12,6 @@ interface TimerMethods {
 }
 
 export class RecordingTimer extends React.Component<TimerProps> {
-
   timerController({ start, stop, reset }: TimerMethods) {
     if (this.props.isRecording) {
       start();

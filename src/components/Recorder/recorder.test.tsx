@@ -6,10 +6,9 @@ jest.mock('react-mic', () => {
   return {
     ReactMic: () => {
       return <div></div>;
-    }
-  }
-})
-
+    },
+  };
+});
 describe('Recorder', () => {
   let wrapper: any;
 
