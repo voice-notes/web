@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Fragment, Component } from 'react';
 import Timer from 'react-compound-timer';
 
 interface TimerProps {
@@ -11,7 +11,7 @@ interface TimerMethods {
   reset: () => void;
 }
 
-export class RecordingTimer extends React.Component<TimerProps> {
+export class RecordingTimer extends Component<TimerProps> {
   timerController({ start, stop, reset }: TimerMethods) {
     if (this.props.isRecording) {
       start();
@@ -28,11 +28,11 @@ export class RecordingTimer extends React.Component<TimerProps> {
         formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
       >
         {({ start, stop, reset }: TimerMethods) => (
-          <React.Fragment>
+          <Fragment>
             <Timer.Minutes />:
             <Timer.Seconds />
             {this.timerController({ start, stop, reset })}
-          </React.Fragment>
+          </Fragment>
         )}
       </Timer>
     );
