@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Hello } from '../Hello/Hello';
-import './App.css';
+import styles from './App.module.css';
 
 export const App = () => {
   return (
-    <div className="App">
+    <div className={styles.app}>
       <Hello appName="Taped it" />
     </div>
   );
