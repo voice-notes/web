@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import styles from './header.module.css';
 
 interface HeaderProps {
   children: React.ReactNode;
 }
 
-export const Header: React.FunctionComponent<HeaderProps> = (
+export const Header: FunctionComponent<HeaderProps> = (
   props: HeaderProps
 ) => {
   return (

@@ -1,10 +1,10 @@
 .container {
-  margin: 0 auto;
-  padding: 10px 0;
-  max-width: 950px;
-  text-align: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  margin: 0 auto;
+  max-width: 950px;
+  padding: 10px 0;
+  text-align: center;
 }

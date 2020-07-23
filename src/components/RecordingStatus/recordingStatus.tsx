@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React, { FunctionComponent } from 'react';
 import './recordingStatus.css';
 
 interface StatusProps {
   isRecording: boolean;
 }
 
-export const RecordingStatus: React.FunctionComponent<StatusProps> = (
+export const RecordingStatus: FunctionComponent<StatusProps> = (
   props: StatusProps
 ) => {
   if (props.isRecording) {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
@@ -12,7 +12,7 @@ type recorderState = {
 interface EmptyProps {
 }
 
-export class Recorder extends React.Component<EmptyProps, recorderState> {
+export class Recorder extends Component<EmptyProps, recorderState> {
   constructor(props: EmptyProps, state: recorderState) {
     super(props, state);
     this.state = {
