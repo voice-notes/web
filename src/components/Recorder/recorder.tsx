@@ -37,11 +37,13 @@ export class Recorder extends Component<EmptyProps, recorderState> {
   }
 
   render() {
+    const { buttonText, isRecording } = this.state
+
     return (
       <div className={styles.container}>
-        <RecordingStatus isRecording={this.state.isRecording} />
+        <RecordingStatus isRecording={isRecording} />
         <ReactMic
-          record={this.state.isRecording}
+          record={isRecording}
           className="sound-wave"
           onStop={this.onStop}
           onData={this.onData}
@@ -49,9 +51,9 @@ export class Recorder extends Component<EmptyProps, recorderState> {
           backgroundColor="#FF4081"
         />
         <button id="record" onClick={() => this.toggleRecording()}>
-          {this.state.buttonText} recording
+          {buttonText} recording
         </button>
-        <RecordingTimer isRecording={this.state.isRecording} />
+        <RecordingTimer isRecording={isRecording} />
       </div>
     );
   }
