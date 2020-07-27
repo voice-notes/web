@@ -9,11 +9,8 @@ type recorderState = {
   buttonText: string;
 };
 
-interface EmptyProps {
-}
-
-export class Recorder extends Component<EmptyProps, recorderState> {
-  constructor(props: EmptyProps, state: recorderState) {
+export class Recorder extends Component<{}, recorderState> {
+  constructor(props: {}, state: recorderState) {
     super(props, state);
     this.state = {
       isRecording: false,
