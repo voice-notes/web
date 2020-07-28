@@ -4,7 +4,7 @@ import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
 import styles from './recorder.module.css';
 import { IconContext } from 'react-icons';
-import { MdPlayArrow, MdFiberManualRecord } from 'react-icons/md';
+import { MdFiberManualRecord } from 'react-icons/md';
 
 
 type recorderState = {
