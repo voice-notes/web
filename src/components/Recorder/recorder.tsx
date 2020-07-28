@@ -3,6 +3,9 @@ import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
 import styles from './recorder.module.css';
+import { IconContext } from 'react-icons';
+import { MdPlayArrow, MdFiberManualRecord } from 'react-icons/md';
+
 
 type recorderState = {
   isRecording: boolean;
@@ -39,7 +42,9 @@ export class Recorder extends Component<{}, recorderState> {
     return (
       <div>
         <button className={styles.btn} id="record" onClick={() => this.toggleRecording()}>
-          {buttonText} recording
+          <IconContext.Provider value={{ color: "#BD200C" }}>
+            <MdFiberManualRecord /> {buttonText} recording
+          </IconContext.Provider>
         </button>
         <div className={styles.container}>
           <RecordingStatus isRecording={isRecording} />

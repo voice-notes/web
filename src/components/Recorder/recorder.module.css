@@ -12,9 +12,15 @@
 
 .btn {
   font-family: var(--primary-font);
+  display: flex;
+  margin: 0 auto;
   border-radius: 50px 50px 0 0;
   background-color: black;
   padding: 27px 41px;
   text-align: center;
-  margin: 0 auto;
 }
+
+/* .react-icons {
+  vertical-align: middle;
+  border: 32px solid #BD200C;
+} */
