@@ -1,10 +1,20 @@
 .container {
   align-items: center;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
-  max-width: 950px;
+  max-width: 100%;
   padding: 10px 0;
   text-align: center;
+}
+
+.btn {
+  font-family: var(--primary-font);
+  border-radius: 50px 50px 0 0;
+  background-color: black;
+  padding: 27px 41px;
+  text-align: center;
+  margin: 0 auto;
 }
