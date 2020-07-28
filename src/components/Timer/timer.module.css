@@ -1,0 +1,4 @@
+.timer {
+  font-family: var(--primary-font);
+  color: var(--timer-color);
+}

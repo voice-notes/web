@@ -1,3 +1,4 @@
 .status {
-  color: white;
+  color: var(--status-color);
+  font-family: var(--detail-font);
 }

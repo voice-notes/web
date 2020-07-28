@@ -17,6 +17,9 @@
     "react-dom": "^16.13.1",
     "react-mic": "^12.4.6",
     "react-scripts": "3.4.1",
+    "typeface-open-sans": "^0.0.75",
+    "typeface-permanent-marker": "^0.0.72",
+    "typeface-staatliches": "^0.0.71",
     "typescript": "~3.7.2"
   },
   "scripts": {

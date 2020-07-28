@@ -1,3 +1,12 @@
+:root {
+  --primary-font: "Staatliches", cursive;
+  --secondary-font: "open-sans", sans-serif;
+  --detail-font: "permanent marker", cursive;
+  --brand-color: #0A9E74;
+  --status-color: #FFFFFF;
+  --timer-color: #D3D3D3; 
+}
+
 body {
   font-family:
     -apple-system,

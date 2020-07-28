@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import Timer from 'react-compound-timer';
+import styles from './timer.module.css';
 
 interface TimerProps {
   isRecording: boolean;
@@ -23,7 +24,8 @@ export class RecordingTimer extends Component<TimerProps> {
 
   render() {
     return (
-      <Timer
+      <div className={styles.timer}>
+      <Timer 
         startImmediately={false}
         formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
       >
@@ -35,6 +37,7 @@ export class RecordingTimer extends Component<TimerProps> {
           </Fragment>
         )}
       </Timer>
+      </div>
     );
   }
 }

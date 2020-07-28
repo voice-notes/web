@@ -1,7 +1,8 @@
 .header {
   background-image: url('/assets/tape.svg');
-  color: white;
+  color: var(--brand-color);
   display: flex;
+  font-family: var(--primary-font);
   font-size: calc(10px + 2vmin);
   height: 400px;
   margin: 0;
