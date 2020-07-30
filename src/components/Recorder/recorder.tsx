@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ReactMic } from 'react-mic';
-import { Timer } from '../Timer/timer-alt';
+import { Timer } from '../Timer/timer';
 import styles from './recorder.module.css';
 
 interface RecorderProps {
