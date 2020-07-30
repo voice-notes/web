@@ -22,7 +22,7 @@ Object {
           >
             <svg
               baseProfile="tiny"
-              class="reactIcons"
+              class="icons"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
@@ -82,7 +82,7 @@ Object {
         >
           <svg
             baseProfile="tiny"
-            class="reactIcons"
+            class="icons"
             fill="currentColor"
             height="1em"
             stroke="currentColor"
