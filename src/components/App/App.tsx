@@ -3,7 +3,6 @@ import { RecordingButtonText, RecordingButtonIcon } from '../Buttons/buttons'
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
 import styles from './App.module.css';
-// import { RecordingIcon } from '../ButtonContent/recordingIcon';
 
 export const App = () => {
   const [isRecording, setIsRecording] = useState(false);
