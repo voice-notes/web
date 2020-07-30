@@ -50,9 +50,10 @@ Object {
             />
           </svg>
           <span
-            class="btnText"
+            class="text"
           >
-            Start Recording
+            Start
+             recording
           </span>
         </button>
         <div />
@@ -105,9 +106,10 @@ Object {
           />
         </svg>
         <span
-          class="btnText"
+          class="text"
         >
-          Start Recording
+          Start
+           recording
         </span>
       </button>
       <div />

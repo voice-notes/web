@@ -1,17 +1,9 @@
-import React, { useState, FunctionComponent } from 'react';
+import React, { useState } from 'react';
+import { RecordingButtonText, RecordingButtonIcon } from '../Buttons/buttons'
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
 import styles from './App.module.css';
-import { RecordingIcon } from '../RecordingIcon/recordingIcon';
-
-interface RecordingProps {
-  isRecording: boolean
-}
-
-const ButtonText: FunctionComponent<RecordingProps> = ({isRecording}:RecordingProps) => {
-  if(isRecording) return <span className={styles.btnText}>Stop Recording</span>
-  return <span className={styles.btnText}>Start Recording</span>
-}
+// import { RecordingIcon } from '../ButtonContent/recordingIcon';
 
 export const App = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -28,8 +20,8 @@ export const App = () => {
         id="record"
         onClick={() => toggleRecording()}
       >
-        <RecordingIcon isRecording={isRecording} />
-        <ButtonText isRecording={isRecording} />
+        <RecordingButtonIcon isRecording={isRecording} />
+        <RecordingButtonText isRecording={isRecording} />
       </button>
       <Recorder isRecording={isRecording} />
     </div>
