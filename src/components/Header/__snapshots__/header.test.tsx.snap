@@ -8,7 +8,9 @@ Object {
       <div
         class="header"
       >
-        <svg>
+        <svg
+          class="logo"
+        >
           tape.svg
         </svg>
         <div
@@ -30,7 +32,9 @@ Object {
     <div
       class="header"
     >
-      <svg>
+      <svg
+        class="logo"
+      >
         tape.svg
       </svg>
       <div

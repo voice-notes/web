@@ -13,7 +13,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
   const title = 'Taped It';
   return (
     <div className={styles.header}>
-      <TapeLogo />
+        <TapeLogo className={styles.logo}/>
       <div className={styles.title}>
         <h1>{title}</h1>
         <RecordingStatus isRecording={isRecording} />
