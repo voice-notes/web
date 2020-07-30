@@ -5,7 +5,7 @@ import styles from './App.module.css';
 import { RecordingIcon } from '../RecordingIcon/recordingIcon';
 
 export const App = () => {
-  const [isRecording, setIsRecording] = useState(false); 
+  const [isRecording, setIsRecording] = useState(false);
   const [buttonText, setButtonText] = useState('Start');
 
   function toggleRecording() {
@@ -13,16 +13,16 @@ export const App = () => {
   }
 
   function handleButtonStatus(isRecording: boolean) {
-    if(isRecording) {
-     setButtonText('Stop');
+    if (isRecording) {
+      setButtonText('Stop');
       return;
     }
     setButtonText('Start');
   }
 
   useEffect(() => {
-    handleButtonStatus(isRecording)
-  })
+    handleButtonStatus(isRecording);
+  });
 
   return (
     <div className={styles.app}>

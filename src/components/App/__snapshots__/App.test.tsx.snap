@@ -14,13 +14,15 @@ Object {
           <svg>
             tape.svg
           </svg>
-          <h1>
-            Taped It
-          </h1>
-          <div
-            class="status"
-          >
-            Ready to record...
+          <div>
+            <h1>
+              Taped It
+            </h1>
+            <div
+              class="status"
+            >
+              Ready to record...
+            </div>
           </div>
         </div>
         <button
@@ -64,13 +66,15 @@ Object {
         <svg>
           tape.svg
         </svg>
-        <h1>
-          Taped It
-        </h1>
-        <div
-          class="status"
-        >
-          Ready to record...
+        <div>
+          <h1>
+            Taped It
+          </h1>
+          <div
+            class="status"
+          >
+            Ready to record...
+          </div>
         </div>
       </div>
       <button

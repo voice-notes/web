@@ -1,13 +1,13 @@
 .header {
+  align-items: center;
   background-image: url('/assets/tape.svg');
   display: flex;
 
   /* font-size: calc(10px + 2vmin); */
   height: 400px;
+  justify-content: center;
   margin: 0;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 }
 
 .header h1 {

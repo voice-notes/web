@@ -1,13 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { RecordingStatus } from '../RecordingStatus/recordingStatus'
+import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import styles from './header.module.css';
-import { ReactComponent as TapeLogo } from '../../assets/tape.svg'
+import { ReactComponent as TapeLogo } from '../../assets/tape.svg';
 
 interface HeaderProps {
   isRecording: boolean;
 }
 
-export const Header: FunctionComponent<HeaderProps> = ({isRecording}: HeaderProps) => {
+export const Header: FunctionComponent<HeaderProps> = ({
+  isRecording,
+}: HeaderProps) => {
   const title = 'Taped It';
   return (
     <div className={styles.header}>

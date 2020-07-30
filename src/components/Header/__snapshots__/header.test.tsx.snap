@@ -11,13 +11,15 @@ Object {
         <svg>
           tape.svg
         </svg>
-        <h1>
-          Taped It
-        </h1>
-        <div
-          class="status"
-        >
-          Ready to record...
+        <div>
+          <h1>
+            Taped It
+          </h1>
+          <div
+            class="status"
+          >
+            Ready to record...
+          </div>
         </div>
       </div>
     </div>
@@ -29,13 +31,15 @@ Object {
       <svg>
         tape.svg
       </svg>
-      <h1>
-        Taped It
-      </h1>
-      <div
-        class="status"
-      >
-        Ready to record...
+      <div>
+        <h1>
+          Taped It
+        </h1>
+        <div
+          class="status"
+        >
+          Ready to record...
+        </div>
       </div>
     </div>
   </div>,
