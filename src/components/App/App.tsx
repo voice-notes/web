@@ -13,11 +13,11 @@ export const App = () => {
   }
 
   useEffect(() => {
-    if(isRecording) {
+      if(isRecording) {
+        setButtonText('Stop');
+        return;
+      }
       setButtonText('Start');
-      return;
-    }
-    setButtonText('Stop');
   })
 
   return (
