@@ -8,28 +8,7 @@ Object {
       <div
         class="app"
       >
-        <div
-          class="header"
-        >
-          <svg
-            class="logo"
-            title="Tape It logo"
-          >
-            tape.svg
-          </svg>
-          <div
-            class="title"
-          >
-            <h1>
-              Taped It
-            </h1>
-            <div
-              class="status"
-            >
-              Ready to record...
-            </div>
-          </div>
-        </div>
+        
         <button
           class="btn"
           id="record"
@@ -57,7 +36,7 @@ Object {
              recording
           </span>
         </button>
-        <div />
+        
       </div>
     </div>
   </body>,
@@ -65,28 +44,7 @@ Object {
     <div
       class="app"
     >
-      <div
-        class="header"
-      >
-        <svg
-          class="logo"
-          title="Tape It logo"
-        >
-          tape.svg
-        </svg>
-        <div
-          class="title"
-        >
-          <h1>
-            Taped It
-          </h1>
-          <div
-            class="status"
-          >
-            Ready to record...
-          </div>
-        </div>
-      </div>
+      
       <button
         class="btn"
         id="record"
@@ -114,7 +72,7 @@ Object {
            recording
         </span>
       </button>
-      <div />
+      
     </div>
   </div>,
   "debug": [Function],

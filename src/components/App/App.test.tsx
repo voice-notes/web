@@ -2,6 +2,8 @@ import * as React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
 import { App } from './App';
+jest.mock('../Header/header');
+jest.mock('../Recorder/recorder');
 
 jest.mock('react-mic', () => {
   return {
@@ -11,13 +13,7 @@ jest.mock('react-mic', () => {
   };
 });
 
-jest.mock('../Recorder/recorder', () => {
-  return {
-    Recorder: () => {
-      return <div></div>;
-    },
-  };
-});
+
 
 test('renders App', () => {
   const container = render(<App />);
