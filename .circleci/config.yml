@@ -13,7 +13,6 @@ jobs:
             - run: yarn install
             - run: yarn test
             - run: yarn lint
-            - run: yarn stylelint
             - run: yarn build
             - run: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --dir=build --message="$CIRCLE_BRANCH@$(git log --pretty='%h %s' -n 1 $CIRCLE_SHA1)"
   deploy:
