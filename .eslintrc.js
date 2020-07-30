@@ -31,6 +31,8 @@ module.exports = {
         "css-modules",
     ],
     "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
       "prettier/prettier": ["error", { "singleQuote": true }], 
       "comma-dangle": [2, {
         "arrays": "always-multiline",
@@ -38,7 +40,7 @@ module.exports = {
         "imports": "always-multiline",
         "exports": "always-multiline",
         "functions": "ignore",
-      }]
+      }],
     },  
     "settings": {
         "react": {
