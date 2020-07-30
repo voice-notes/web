@@ -33,7 +33,7 @@ export const App = () => {
         onClick={() => toggleRecording()}
       >
         <RecordingIcon isRecording={isRecording} />
-        <span className={styles.btnTxt}>{buttonText} recording</span>
+        <span className={styles.btnText}>{buttonText} recording</span>
       </button>
       <Recorder isRecording={isRecording} />
     </div>

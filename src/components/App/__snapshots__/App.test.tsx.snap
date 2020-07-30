@@ -48,7 +48,7 @@ Object {
             />
           </svg>
           <span
-            class="btnTxt"
+            class="btnText"
           >
             Start
              recording
@@ -102,7 +102,7 @@ Object {
           />
         </svg>
         <span
-          class="btnTxt"
+          class="btnText"
         >
           Start
            recording
