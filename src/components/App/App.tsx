@@ -15,23 +15,10 @@ const ButtonText: FunctionComponent<RecordingProps> = ({isRecording}:RecordingPr
 
 export const App = () => {
   const [isRecording, setIsRecording] = useState(false);
-  // const [buttonText, setButtonText] = useState('Start');
 
   function toggleRecording() {
     setIsRecording(!isRecording);
   }
-
-  // function handleButtonStatus(isRecording: boolean) {
-  //   if (isRecording) {
-  //     setButtonText('Stop');
-  //     return;
-  //   }
-  //   setButtonText('Start');
-  // }
-
-  // useEffect(() => {
-  //   handleButtonStatus(isRecording);
-  // });
 
   return (
     <div className={styles.app}>
