@@ -12,7 +12,13 @@ jest.mock('react-mic', () => {
   };
 });
 
-jest.mock('../Recorder/recorder')
+jest.mock('../Recorder/recorder', () => {
+  return {
+    Recorder: () => {
+      return <div></div>
+    }
+  }
+})
 
 test('renders App', () => {
   const container = render(<App />);

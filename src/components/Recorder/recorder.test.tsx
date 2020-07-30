@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import { Recorder } from './recorder';
 
 jest.mock('react-mic', () => {
@@ -10,5 +10,8 @@ jest.mock('react-mic', () => {
   };
 });
 describe('Recorder', () => {
-  
+  it('renders App', () => {
+    const container = render(<Recorder isRecording={false} />);
+    expect(container).toMatchSnapshot();
+  });
 });
