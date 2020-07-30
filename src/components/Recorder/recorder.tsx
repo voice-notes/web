@@ -24,8 +24,8 @@ export const Recorder:FunctionComponent<RecorderProps> = ({isRecording}:Recorder
           className="sound-wave"
           onStop={onStop}
           onData={onData}
-          strokeColor="#000000"
-          backgroundColor="#0A9E74"
+          strokeColor="#0A9E74"
+          backgroundColor="#000"
       />
       <RecordingTimer isRecording={isRecording} />
     </div> 
