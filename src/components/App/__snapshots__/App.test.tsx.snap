@@ -14,7 +14,9 @@ Object {
           <svg>
             tape.svg
           </svg>
-          <div>
+          <div
+            class="title"
+          >
             <h1>
               Taped It
             </h1>
@@ -66,7 +68,9 @@ Object {
         <svg>
           tape.svg
         </svg>
-        <div>
+        <div
+          class="title"
+        >
           <h1>
             Taped It
           </h1>

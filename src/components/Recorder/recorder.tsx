@@ -22,7 +22,7 @@ export const Recorder: FunctionComponent<RecorderProps> = ({
     <div className={styles.container}>
       <ReactMic
         record={isRecording}
-        className="sound-wave"
+        className={styles.sineWave}
         onStop={onStop}
         onData={onData}
         strokeColor="#0A9E74"
