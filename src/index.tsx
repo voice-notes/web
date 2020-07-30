@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './components/App/App';
 import * as serviceWorker from './serviceWorker';
-require("typeface-staatliches");
-require("typeface-open-sans");
-require("typeface-permanent-marker");
+require('typeface-staatliches');
+require('typeface-open-sans');
+require('typeface-permanent-marker');
 
 ReactDOM.render(
   <React.StrictMode>

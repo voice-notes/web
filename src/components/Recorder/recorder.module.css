@@ -11,25 +11,24 @@
 }
 
 .btn {
-  font-family: var(--primary-font);
-  display: flex;
-  margin: 0 auto;
-  border-radius: 50px 50px 0 0;
   background-color: black;
+  border-radius: 50px 50px 0 0;
+  display: flex;
+  font-family: var(--primary-font);
+  margin: 0 auto;
   padding: 10px 25px;
   text-align: center;
-  
 }
 
 .reactIcons {
-  color:#BD200C;
-  padding: 0;
-  margin: 0;
   border: 0;
+  color: #bd200c;
   font-size: 72px;
-}  
+  margin: 0;
+  padding: 0;
+}
 
 .btnTxt {
-  margin-top: 24px;
   margin-right: 16px;
+  margin-top: 24px;
 }

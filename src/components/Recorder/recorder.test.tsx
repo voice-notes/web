@@ -10,7 +10,6 @@ jest.mock('react-mic', () => {
   };
 });
 describe('Recorder', () => {
-  
   it('renders record button', () => {
     const wrapper = shallow(<Recorder />);
     expect(wrapper.find('button').text()).toContain('Start recording');

@@ -25,18 +25,18 @@ export class RecordingTimer extends Component<TimerProps> {
   render() {
     return (
       <div className={styles.timer}>
-      <Timer 
-        startImmediately={false}
-        formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
-      >
-        {({ start, stop, reset }: TimerMethods) => (
-          <Fragment>
-            <Timer.Minutes />:
-            <Timer.Seconds />
-            {this.timerController({ start, stop, reset })}
-          </Fragment>
-        )}
-      </Timer>
+        <Timer
+          startImmediately={false}
+          formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
+        >
+          {({ start, stop, reset }: TimerMethods) => (
+            <Fragment>
+              <Timer.Minutes />:
+              <Timer.Seconds />
+              {this.timerController({ start, stop, reset })}
+            </Fragment>
+          )}
+        </Timer>
       </div>
     );
   }

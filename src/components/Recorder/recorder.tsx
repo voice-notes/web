@@ -6,7 +6,6 @@ import styles from './recorder.module.css';
 import { IconContext } from 'react-icons';
 import { TiMediaRecordOutline } from 'react-icons/ti';
 
-
 type recorderState = {
   isRecording: boolean;
   buttonText: string;
@@ -37,13 +36,17 @@ export class Recorder extends Component<{}, recorderState> {
   }
 
   render() {
-    const { buttonText, isRecording } = this.state
+    const { buttonText, isRecording } = this.state;
 
     return (
       <div>
-        <button className={styles.btn} id="record" onClick={() => this.toggleRecording()}>
-          <IconContext.Provider value={{ className:styles.reactIcons }}>
-            <TiMediaRecordOutline /> 
+        <button
+          className={styles.btn}
+          id="record"
+          onClick={() => this.toggleRecording()}
+        >
+          <IconContext.Provider value={{ className: styles.reactIcons }}>
+            <TiMediaRecordOutline />
           </IconContext.Provider>
           <span className={styles.btnTxt}>{buttonText} recording</span>
         </button>
@@ -58,7 +61,7 @@ export class Recorder extends Component<{}, recorderState> {
             backgroundColor="#0A9E74"
           />
           <RecordingTimer isRecording={isRecording} />
-      </div>
+        </div>
       </div>
     );
   }

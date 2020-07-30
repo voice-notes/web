@@ -1,6 +1,7 @@
 .header {
   background-image: url('/assets/tape.svg');
   display: flex;
+
   /* font-size: calc(10px + 2vmin); */
   height: 400px;
   margin: 0;
@@ -8,8 +9,8 @@
 }
 
 .header h1 {
-  margin: auto;
-  font-size: 2.8rem;
-  font-family: var(--primary-font);
   color: var(--brand-color);
+  font-family: var(--primary-font);
+  font-size: 2.8rem;
+  margin: auto;
 }
