@@ -8,7 +8,7 @@ Object {
       <div
         class="container"
       >
-        <div />
+        
         <div
           class="timer"
         >
@@ -23,7 +23,7 @@ Object {
     <div
       class="container"
     >
-      <div />
+      
       <div
         class="timer"
       >
