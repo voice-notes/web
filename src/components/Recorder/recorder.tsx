@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
+import { RecordingIcon } from '../RecordingIcon/recordingIcon';
 import styles from './recorder.module.css';
-import { IconContext } from 'react-icons';
-import { TiMediaRecordOutline } from 'react-icons/ti';
 
 type recorderState = {
   isRecording: boolean;
@@ -45,9 +44,7 @@ export class Recorder extends Component<{}, recorderState> {
           id="record"
           onClick={() => this.toggleRecording()}
         >
-          <IconContext.Provider value={{ className: styles.reactIcons }}>
-            <TiMediaRecordOutline />
-          </IconContext.Provider>
+          <RecordingIcon isRecording={isRecording} />
           <span className={styles.btnTxt}>{buttonText} recording</span>
         </button>
         <div className={styles.container}>
