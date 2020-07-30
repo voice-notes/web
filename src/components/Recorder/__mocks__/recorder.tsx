@@ -1,3 +1,3 @@
 export const Recorder = () => {
-  return ''
-}
+  return '';
+};
