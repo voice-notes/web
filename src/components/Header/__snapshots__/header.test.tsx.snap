@@ -8,6 +8,9 @@ Object {
       <div
         class="header"
       >
+        <svg>
+          tape.svg
+        </svg>
         <h1>
           Taped It
         </h1>
@@ -23,6 +26,9 @@ Object {
     <div
       class="header"
     >
+      <svg>
+        tape.svg
+      </svg>
       <h1>
         Taped It
       </h1>
