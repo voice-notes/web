@@ -10,11 +10,12 @@
   display: flex;
   font-family: var(--primary-font);
   margin: 0 auto;
-  padding: 10px 25px;
+  padding: 7.5px;
   text-align: center;
+  width: 200px;
 }
 
 .btnTxt {
-  margin-right: 16px;
-  margin-top: 24px;
+  margin-right: 5px;
+  margin-top: 20px;
 }
