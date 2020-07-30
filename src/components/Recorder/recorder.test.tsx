@@ -13,13 +13,13 @@ describe('Recorder', () => {
   
   it('renders record button', () => {
     const wrapper = shallow(<Recorder />);
-    expect(wrapper.find('button').text()).toEqual('Start recording');
+    expect(wrapper.find('button').text()).toContain('Start recording');
   });
 
   it('updates the button text', () => {
     const wrapper = shallow(<Recorder />);
     wrapper.find('#record').simulate('click');
-    expect(wrapper.find('button').text()).toEqual('Stop recording');
+    expect(wrapper.find('button').text()).toContain('Stop recording');
   });
 
   it('is not recording by default', () => {
