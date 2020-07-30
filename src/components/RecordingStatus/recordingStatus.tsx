@@ -1,9 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import styles from './recordingStatus.module.css';
-import { RecordingProps } from '../interface';
 
-export const RecordingStatus: FunctionComponent<RecordingProps> = (
-  props: RecordingProps
+interface StatusProps {
+  isRecording: boolean;
+}
+
+export const RecordingStatus: FunctionComponent<StatusProps> = (
+  props: StatusProps
 ) => {
   if (props.isRecording) {
     return <div className={styles.status}>Recording...</div>;

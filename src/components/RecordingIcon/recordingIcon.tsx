@@ -2,7 +2,10 @@ import React, { FunctionComponent } from 'react';
 import styles from './recordingIcon.module.css';
 import { IconContext } from 'react-icons';
 import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
-import { RecordingProps } from '../interface';
+
+interface RecordingProps {
+  isRecording: boolean;
+}
 
 export const RecordingIcon: FunctionComponent<RecordingProps> = ({
   isRecording,
