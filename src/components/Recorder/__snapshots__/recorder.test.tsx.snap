@@ -8,11 +8,6 @@ Object {
       <div
         class="container"
       >
-        <div
-          class="status"
-        >
-          Ready to record...
-        </div>
         <div />
         <div
           class="timer"
@@ -28,11 +23,6 @@ Object {
     <div
       class="container"
     >
-      <div
-        class="status"
-      >
-        Ready to record...
-      </div>
       <div />
       <div
         class="timer"

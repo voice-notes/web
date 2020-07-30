@@ -12,17 +12,21 @@ export const App = () => {
     setIsRecording(!isRecording);
   }
 
+  function handleButtonStatus(isRecording: boolean) {
+    if(isRecording) {
+     setButtonText('Stop');
+      return;
+    }
+    setButtonText('Start');
+  }
+
   useEffect(() => {
-      if(isRecording) {
-        setButtonText('Stop');
-        return;
-      }
-      setButtonText('Start');
+    handleButtonStatus(isRecording)
   })
 
   return (
     <div className={styles.app}>
-      <Header>Taped It</Header>
+      <Header isRecording={isRecording} />
       <button
         className={styles.btn}
         id="record"

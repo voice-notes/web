@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
 import styles from './recorder.module.css';
@@ -20,7 +19,6 @@ export const Recorder:FunctionComponent<RecorderProps> = ({isRecording}:Recorder
   
   return (
     <div className={styles.container}>
-      <RecordingStatus isRecording={isRecording} />
       <ReactMic
         record={isRecording}
           className="sound-wave"

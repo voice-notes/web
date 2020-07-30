@@ -9,8 +9,13 @@ Object {
         class="header"
       >
         <h1>
-          Test
+          Taped It
         </h1>
+        <div
+          class="status"
+        >
+          Ready to record...
+        </div>
       </div>
     </div>
   </body>,
@@ -19,8 +24,13 @@ Object {
       class="header"
     >
       <h1>
-        Test
+        Taped It
       </h1>
+      <div
+        class="status"
+      >
+        Ready to record...
+      </div>
     </div>
   </div>,
   "debug": [Function],
