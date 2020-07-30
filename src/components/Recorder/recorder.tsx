@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ReactMic } from 'react-mic';
-import { RecordingTimer } from '../Timer/timer';
+import { Timer } from '../Timer/timer-alt';
 import styles from './recorder.module.css';
 
 interface RecorderProps {
@@ -28,7 +28,7 @@ export const Recorder: FunctionComponent<RecorderProps> = ({
         strokeColor="#0A9E74"
         backgroundColor="#000"
       />
-      <RecordingTimer isRecording={isRecording} />
+      <Timer isRecording={isRecording} />
     </div>
   );
 };
