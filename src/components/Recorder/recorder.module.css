@@ -16,11 +16,20 @@
   margin: 0 auto;
   border-radius: 50px 50px 0 0;
   background-color: black;
-  padding: 27px 41px;
+  padding: 10px 25px;
   text-align: center;
+  
 }
 
-/* .react-icons {
-  vertical-align: middle;
-  border: 32px solid #BD200C;
-} */
+.reactIcons {
+  color:#BD200C;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 72px;
+}  
+
+.btnTxt {
+  margin-top: 24px;
+  margin-right: 16px;
+}

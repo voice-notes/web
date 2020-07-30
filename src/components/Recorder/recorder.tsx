@@ -4,7 +4,7 @@ import { ReactMic } from 'react-mic';
 import { RecordingTimer } from '../Timer/timer';
 import styles from './recorder.module.css';
 import { IconContext } from 'react-icons';
-import { MdFiberManualRecord } from 'react-icons/md';
+import { TiMediaRecordOutline } from 'react-icons/ti';
 
 
 type recorderState = {
@@ -42,9 +42,10 @@ export class Recorder extends Component<{}, recorderState> {
     return (
       <div>
         <button className={styles.btn} id="record" onClick={() => this.toggleRecording()}>
-          <IconContext.Provider value={{ color: "#BD200C" }}>
-            <MdFiberManualRecord /> {buttonText} recording
+          <IconContext.Provider value={{ className:styles.reactIcons }}>
+            <TiMediaRecordOutline /> 
           </IconContext.Provider>
+          <span className={styles.btnTxt}>{buttonText} recording</span>
         </button>
         <div className={styles.container}>
           <RecordingStatus isRecording={isRecording} />
