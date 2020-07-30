@@ -3,6 +3,7 @@
   background-color: black;
   display: flex;
   flex-direction: column;
+  height: 265px;
   justify-content: space-around;
   margin: 0 auto;
   max-width: 100%;
