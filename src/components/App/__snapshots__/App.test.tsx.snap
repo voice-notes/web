@@ -52,8 +52,7 @@ Object {
           <span
             class="btnText"
           >
-            Start
-             recording
+            Start Recording
           </span>
         </button>
         <div />
@@ -108,8 +107,7 @@ Object {
         <span
           class="btnText"
         >
-          Start
-           recording
+          Start Recording
         </span>
       </button>
       <div />
