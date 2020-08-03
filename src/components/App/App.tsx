@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RecordingButtonText, RecordingButtonIcon } from '../Buttons/buttons'
+import { RecordingButtonText, RecordingButtonIcon } from '../Buttons/buttons';
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
 import styles from './App.module.css';

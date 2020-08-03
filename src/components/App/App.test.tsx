@@ -8,4 +8,3 @@ test('renders App', () => {
   const container = render(<App />);
   expect(container).toMatchSnapshot();
 });
-
