@@ -3,13 +3,11 @@ import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import styles from './header.module.css';
 import { ReactComponent as TapeLogo } from '../../assets/tape.svg';
 
-interface HeaderProps {
+interface Props {
   isRecording: boolean;
 }
 
-export const Header: FunctionComponent<HeaderProps> = ({
-  isRecording,
-}: HeaderProps) => {
+export const Header: FunctionComponent<Props> = ({ isRecording }: Props) => {
   const title = 'Taped It';
   return (
     <div className={styles.header}>

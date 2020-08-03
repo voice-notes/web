@@ -1,13 +1,11 @@
 import React, { useState, FunctionComponent, useEffect } from 'react';
 import styles from './timer.module.css';
 
-interface RecordingProps {
+interface Props {
   isRecording: boolean;
 }
 
-export const Timer: FunctionComponent<RecordingProps> = ({
-  isRecording,
-}: RecordingProps) => {
+export const Timer: FunctionComponent<Props> = ({ isRecording }: Props) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
 

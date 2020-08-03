@@ -3,20 +3,20 @@ import styles from './buttons.module.css';
 import { IconContext } from 'react-icons';
 import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
 
-interface RecordingProps {
+interface Props {
   isRecording: boolean;
 }
 
-export const RecordingButtonText: FunctionComponent<RecordingProps> = ({
+export const RecordingButtonText: FunctionComponent<Props> = ({
   isRecording,
-}: RecordingProps) => {
+}: Props) => {
   const mediaAction = isRecording ? 'Stop' : 'Start';
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
-export const RecordingButtonIcon: FunctionComponent<RecordingProps> = ({
+export const RecordingButtonIcon: FunctionComponent<Props> = ({
   isRecording,
-}: RecordingProps) => {
+}: Props) => {
   const iconComponent = isRecording ? (
     <TiMediaStopOutline />
   ) : (
