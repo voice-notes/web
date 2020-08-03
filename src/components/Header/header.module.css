@@ -1,6 +1,5 @@
 .header {
   align-items: center;
-  background-image: url('/assets/tape.svg');
   display: flex;
   height: 400px;
   justify-content: center;
