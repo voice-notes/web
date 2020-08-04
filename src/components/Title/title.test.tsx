@@ -7,4 +7,9 @@ describe('Title', () => {
     const wrapper = shallow(<Title isRecording={false} />);
     expect(wrapper.text()).toEqual('Tape It');
   });
+
+  it('displays "Taping It" when recording', () => {
+    const wrapper = shallow(<Title isRecording={true} />);
+    expect(wrapper.text()).toEqual('Taping It');
+  });
 });
