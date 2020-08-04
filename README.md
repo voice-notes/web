@@ -9,8 +9,6 @@ Check the app out [here](https://tapedit.netlify.app/)!
 
 ## Getting started
 
-To get the code:
-
 This project uses yarn package manager. Make sure you have [yarn installed](https://classic.yarnpkg.com/en/docs/install/), clone the project and then run the following inside the repository locally:
 ```shell
 git clone git@github.com:voice-notes/web.git
