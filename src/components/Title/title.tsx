@@ -1,9 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 interface Props {
   isRecording: boolean;
 }
 
-export const Title = (props) => {
-  return <div>Tape It</div>
-}
+export const Title = (props: Props) => {
+  if (props.isRecording) return <h1>Taping It</h1>;
+  return <h1>Tape It</h1>;
+};
