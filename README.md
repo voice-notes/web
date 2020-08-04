@@ -5,7 +5,7 @@ Send voice notes to your colleagues with [Slack](https://slack.com)
 This repository hosts the frontend interface for the application.
 Check the app out [here](https://tapedit.netlify.app/)!
 
-![Tape It interface](https://ibb.co/jrNJngV)
+![Tape It interface](https://i.ibb.co/YLC0HpD/Tape-It-UI.png)
 
 ## Getting started
 
