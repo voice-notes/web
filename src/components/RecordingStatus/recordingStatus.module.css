@@ -1,0 +1,5 @@
+.status {
+  color: var(--status-color);
+  font-family: var(--detail-font);
+  font-size: 1.8rem;
+}

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { App } from './App';
+jest.mock('../Header/header');
+jest.mock('../Recorder/recorder');
 
-test('renders Hello', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/say hello to taped it!/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders App', () => {
+  const container = render(<App />);
+  expect(container).toMatchSnapshot();
 });

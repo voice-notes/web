@@ -1,0 +1,24 @@
+.header {
+  align-items: center;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+.logo {
+  margin-top: 2rem;
+}
+
+.title {
+  width: 271px;
+}
+
+.title h1 {
+  color: var(--brand-color);
+  font-family: var(--primary-font);
+  font-size: 2.8rem;
+  letter-spacing: 0;
+  margin: 0;
+}
