@@ -5,7 +5,7 @@ interface Props {
   isRecording: boolean;
 }
 
-export const Timer: FunctionComponent<Props> = ({ isRecording }: Props) => {
+export const Timer = ({ isRecording }: Props) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
 
