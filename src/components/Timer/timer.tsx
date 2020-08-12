@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './timer.module.css';
 
 interface Props {
