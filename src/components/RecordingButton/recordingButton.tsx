@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import styles from './buttons.module.css';
+import styles from './recordingButton.module.css';
 import { IconContext } from 'react-icons';
 import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
 
@@ -7,14 +7,33 @@ interface Props {
   isRecording: boolean;
 }
 
-export const RecordingButtonText: FunctionComponent<Props> = ({
+interface ButtonProps {
+  onClickRecord: () => void
+  isRecording: boolean;
+}
+
+export const RecordingButton: FunctionComponent<ButtonProps> = ({onClickRecord, isRecording}: ButtonProps) => {
+
+  return (
+    <button
+        className={styles.btn}
+        id="record"
+        onClick={() => onClickRecord()}
+      >
+        <RecordingButtonIcon isRecording={isRecording} />
+        <RecordingButtonText isRecording={isRecording} />
+      </button>
+  )
+}
+
+const RecordingButtonText: FunctionComponent<Props> = ({
   isRecording,
 }: Props) => {
   const mediaAction = isRecording ? 'Stop' : 'Start';
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
-export const RecordingButtonIcon: FunctionComponent<Props> = ({
+const RecordingButtonIcon: FunctionComponent<Props> = ({
   isRecording,
 }: Props) => {
   const iconComponent = isRecording ? (
