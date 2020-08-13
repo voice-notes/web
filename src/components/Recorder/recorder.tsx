@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { ReactMic } from 'react-mic';
 import { Timer } from '../Timer/timer';
 import styles from './recorder.module.css';
@@ -7,7 +7,7 @@ interface Props {
   isRecording: boolean;
 }
 
-export const Recorder: FunctionComponent<Props> = ({ isRecording }: Props) => {
+export const Recorder = ({ isRecording }: Props) => {
   function onData(recordedBlob: any) {
     console.log('chunk of real-time data is: ', recordedBlob);
   }

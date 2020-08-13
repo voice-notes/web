@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Title } from '../Title/title';
 import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import styles from './header.module.css';
@@ -8,7 +8,7 @@ interface Props {
   isRecording: boolean;
 }
 
-export const Header: FunctionComponent<Props> = ({ isRecording }: Props) => {
+export const Header = ({ isRecording }: Props) => {
   return (
     <div className={styles.header}>
       <TapeLogo className={styles.logo} title="Tape It logo" />
