@@ -17,7 +17,7 @@ export const RecordingButton = ({
   isRecording,
 }: ButtonProps) => {
   return (
-    <button className={styles.btn} id="record" onClick={() => onClickRecord()}>
+    <button className={styles.btn} id="record" onClick={onClickRecord}>
       <RecordingButtonIcon isRecording={isRecording} />
       <RecordingButtonText isRecording={isRecording} />
     </button>
