@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styles from './recordingButton.module.css';
 import { IconContext } from 'react-icons';
 import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
@@ -12,7 +12,7 @@ interface ButtonProps {
   isRecording: boolean;
 }
 
-export const RecordingButton: FunctionComponent<ButtonProps> = ({
+export const RecordingButton = ({
   onClickRecord,
   isRecording,
 }: ButtonProps) => {
@@ -24,16 +24,12 @@ export const RecordingButton: FunctionComponent<ButtonProps> = ({
   );
 };
 
-export const RecordingButtonText: FunctionComponent<Props> = ({
-  isRecording,
-}: Props) => {
+export const RecordingButtonText = ({ isRecording }: Props) => {
   const mediaAction = isRecording ? 'Stop' : 'Start';
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
-export const RecordingButtonIcon: FunctionComponent<Props> = ({
-  isRecording,
-}: Props) => {
+export const RecordingButtonIcon = ({ isRecording }: Props) => {
   const iconComponent = isRecording ? (
     <TiMediaStopOutline />
   ) : (
