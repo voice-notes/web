@@ -8,23 +8,21 @@ interface Props {
 }
 
 interface ButtonProps {
-  onClickRecord: () => void
+  onClickRecord: () => void;
   isRecording: boolean;
 }
 
-export const RecordingButton: FunctionComponent<ButtonProps> = ({onClickRecord, isRecording}: ButtonProps) => {
-
+export const RecordingButton: FunctionComponent<ButtonProps> = ({
+  onClickRecord,
+  isRecording,
+}: ButtonProps) => {
   return (
-    <button
-        className={styles.btn}
-        id="record"
-        onClick={() => onClickRecord()}
-      >
-        <RecordingButtonIcon isRecording={isRecording} />
-        <RecordingButtonText isRecording={isRecording} />
-      </button>
-  )
-}
+    <button className={styles.btn} id="record" onClick={() => onClickRecord()}>
+      <RecordingButtonIcon isRecording={isRecording} />
+      <RecordingButtonText isRecording={isRecording} />
+    </button>
+  );
+};
 
 const RecordingButtonText: FunctionComponent<Props> = ({
   isRecording,
