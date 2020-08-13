@@ -24,14 +24,14 @@ export const RecordingButton: FunctionComponent<ButtonProps> = ({
   );
 };
 
-const RecordingButtonText: FunctionComponent<Props> = ({
+export const RecordingButtonText: FunctionComponent<Props> = ({
   isRecording,
 }: Props) => {
   const mediaAction = isRecording ? 'Stop' : 'Start';
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
-const RecordingButtonIcon: FunctionComponent<Props> = ({
+export const RecordingButtonIcon: FunctionComponent<Props> = ({
   isRecording,
 }: Props) => {
   const iconComponent = isRecording ? (
