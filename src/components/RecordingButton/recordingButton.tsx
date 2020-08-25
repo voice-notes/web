@@ -29,9 +29,10 @@ export const RecordingButton = ({
 
 export const RecordingButtonText = ({ isRecording, status }: Props) => {
   const mediaAction = isRecording ? 'Stop' : 'Start';
-  if (status === 'recorded') {
+  if (status === 'recorded' && isRecording === false) {
     return <span className={styles.text}>Re-record</span>;
   }
+
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
