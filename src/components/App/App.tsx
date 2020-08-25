@@ -14,6 +14,7 @@ export const App = () => {
 
   function changeRecordingStatus() {
     setRecordingStatus('recorded');
+    console.log(status);
   }
 
   return (
@@ -21,6 +22,7 @@ export const App = () => {
       <Header isRecording={isRecording} />
       <RecordingButton
         isRecording={isRecording}
+        status={status}
         onClickRecord={() => toggleRecording()}
       />
       <Recorder

@@ -9,7 +9,7 @@ interface Props {
   onClickStatus: () => void;
 }
 
-export const Recorder = ({ isRecording, status, onClickStatus }: Props) => {
+export const Recorder = ({ isRecording, onClickStatus }: Props) => {
   function onData(recordedBlob: any) {
     console.log('chunk of real-time data is: ', recordedBlob);
   }
@@ -17,7 +17,6 @@ export const Recorder = ({ isRecording, status, onClickStatus }: Props) => {
   function onStop(recordedBlob: any) {
     console.log('recordedBlob is: ', recordedBlob);
     onClickStatus();
-    console.log('recorded');
   }
 
   return (
