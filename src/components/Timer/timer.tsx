@@ -6,7 +6,7 @@ interface Props {
   status: string;
 }
 
-export const Timer = ({ isRecording }: Props) => {
+export const Timer = ({ isRecording, status }: Props) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
 
@@ -29,10 +29,14 @@ export const Timer = ({ isRecording }: Props) => {
       }
     };
 
-    // const resetTimer = () => {
-    //   setMinutes(0);
-    //   setSeconds(0);
-    // };
+    const resetTimer = () => {
+      setMinutes(0);
+      setSeconds(0);
+    };
+
+    if (isRecording && status === 'recorded') {
+      resetTimer();
+    }
 
     return () => clearInterval(interval);
   }, [isRecording, seconds]);
