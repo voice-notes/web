@@ -6,9 +6,14 @@ import styles from './App.module.css';
 
 export const App = () => {
   const [isRecording, setIsRecording] = useState(false);
+  const [status, setRecordingStatus] = useState('not recorded');
 
   function toggleRecording() {
     setIsRecording(!isRecording);
+  }
+
+  function changeRecordingStatus() {
+    setRecordingStatus('recorded');
   }
 
   return (
@@ -18,7 +23,11 @@ export const App = () => {
         isRecording={isRecording}
         onClickRecord={() => toggleRecording()}
       />
-      <Recorder isRecording={isRecording} />
+      <Recorder
+        isRecording={isRecording}
+        status={status}
+        onClickStatus={() => changeRecordingStatus()}
+      />
     </div>
   );
 };
