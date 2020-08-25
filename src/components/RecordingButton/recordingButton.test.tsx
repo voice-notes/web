@@ -8,6 +8,7 @@ describe('Button', () => {
     const wrapper = shallow(
       <RecordingButton
         isRecording={false}
+        status={'not recorded'}
         onClickRecord={() => {
           mockToggleRecording();
         }}
@@ -20,17 +21,23 @@ describe('Button', () => {
 
 describe('Button Text', () => {
   it('displays "start recording" if not recording', () => {
-    const wrapper = shallow(<RecordingButtonText isRecording={false} />);
+    const wrapper = shallow(
+      <RecordingButtonText isRecording={false} status={'not recorded'} />
+    );
     expect(wrapper.text()).toContain('Start recording');
   });
 
   it('isRecording updates the button text', () => {
-    const wrapper = shallow(<RecordingButtonText isRecording={true} />);
+    const wrapper = shallow(
+      <RecordingButtonText isRecording={true} status={'not recorded'} />
+    );
     expect(wrapper.text()).toContain('Stop recording');
   });
 
   it('displays rerecord message after the recording is taken', () => {
-    const wrapper = shallow(<RecordingButtonText status={'not recording'} />);
-    expect(wrapper.text()).toContain('Rerecord message');
+    const wrapper = shallow(
+      <RecordingButtonText isRecording={false} status={'recorded'} />
+    );
+    expect(wrapper.text()).toContain('Re-record');
   });
 });
