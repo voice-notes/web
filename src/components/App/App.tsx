@@ -12,9 +12,8 @@ export const App = () => {
     setIsRecording(!isRecording);
   }
 
-  function changeRecordingStatus() {
-    setRecordingStatus('recorded');
-    console.log(status);
+  function changeRecordingStatus(newStatus: string) {
+    setRecordingStatus(newStatus);
   }
 
   return (
@@ -28,7 +27,7 @@ export const App = () => {
       <Recorder
         isRecording={isRecording}
         status={status}
-        onClickStatus={() => changeRecordingStatus()}
+        onClickStatus={changeRecordingStatus}
       />
     </div>
   );

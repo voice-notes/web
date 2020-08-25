@@ -43,7 +43,7 @@ describe('Button Text', () => {
 
   it('restarts the recording message after re-recording', () => {
     const wrapper = shallow(
-      <RecordingButtonText isRecording={true} status={'recorded'} />
+      <RecordingButtonText isRecording={true} status={'recording'} />
     );
     expect(wrapper.text()).toContain('Stop recording');
   });
