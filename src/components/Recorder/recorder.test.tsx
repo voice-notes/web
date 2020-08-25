@@ -9,9 +9,7 @@ describe('Recorder', () => {
       <Recorder
         isRecording={false}
         status={'not recorded'}
-        onClickStatus={() => {
-          mockChangeRecordingStatus();
-        }}
+        onClickStatus={mockChangeRecordingStatus}
       />
     );
     expect(container).toMatchSnapshot();
