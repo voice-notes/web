@@ -21,7 +21,6 @@ export const Timer = ({ isRecording }: Props) => {
     } else if (!isRecording && seconds !== 0) {
       clearInterval(interval);
     }
-
     const setTime = () => {
       setSeconds((seconds) => seconds + 1);
       if (seconds === 59) {
@@ -29,6 +28,11 @@ export const Timer = ({ isRecording }: Props) => {
         setSeconds(0);
       }
     };
+
+    // const resetTimer = () => {
+    //   setMinutes(0);
+    //   setSeconds(0);
+    // };
 
     return () => clearInterval(interval);
   }, [isRecording, seconds]);
