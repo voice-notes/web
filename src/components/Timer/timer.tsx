@@ -3,6 +3,7 @@ import styles from './timer.module.css';
 
 interface Props {
   isRecording: boolean;
+  status: string;
 }
 
 export const Timer = ({ isRecording }: Props) => {
