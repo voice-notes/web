@@ -35,7 +35,7 @@ export const RecordingButtonText = ({ isRecording, status }: Props) => {
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
-export const RecordingButtonIcon = ({ isRecording}: Props) => {
+export const RecordingButtonIcon = ({ isRecording }: Props) => {
   const iconComponent = isRecording ? (
     <TiMediaStopOutline />
   ) : (
