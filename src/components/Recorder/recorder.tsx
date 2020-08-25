@@ -5,15 +5,19 @@ import styles from './recorder.module.css';
 
 interface Props {
   isRecording: boolean;
+  status: string;
+  onClickStatus: () => void;
 }
 
-export const Recorder = ({ isRecording }: Props) => {
+export const Recorder = ({ isRecording, status, onClickStatus }: Props) => {
   function onData(recordedBlob: any) {
     console.log('chunk of real-time data is: ', recordedBlob);
   }
 
   function onStop(recordedBlob: any) {
     console.log('recordedBlob is: ', recordedBlob);
+    onClickStatus();
+    console.log(status);
   }
 
   return (
