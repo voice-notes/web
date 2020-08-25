@@ -17,7 +17,7 @@ export const Recorder = ({ isRecording, status, onClickStatus }: Props) => {
   function onStop(recordedBlob: any) {
     console.log('recordedBlob is: ', recordedBlob);
     onClickStatus();
-    console.log('recorded')
+    console.log('recorded');
   }
 
   return (
