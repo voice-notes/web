@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
 import { RecordingButton } from '../RecordingButton/recordingButton';
+import { SendButton } from '../SendButton/sendButton';
 import styles from './App.module.css';
 
 export const App = () => {
@@ -24,6 +25,7 @@ export const App = () => {
         status={status}
         onClickRecord={() => toggleRecording()}
       />
+      <SendButton status={status} />
       <Recorder
         isRecording={isRecording}
         status={status}
