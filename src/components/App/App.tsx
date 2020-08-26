@@ -20,12 +20,14 @@ export const App = () => {
   return (
     <div className={styles.app}>
       <Header isRecording={isRecording} />
-      <RecordingButton
-        isRecording={isRecording}
-        status={status}
-        onClickRecord={() => toggleRecording()}
-      />
-      <SendButton status={status} />
+      <div className={styles.buttons}>
+        <RecordingButton
+          isRecording={isRecording}
+          status={status}
+          onClickRecord={() => toggleRecording()}
+        />
+        <SendButton status={status} />
+      </div>
       <Recorder
         isRecording={isRecording}
         status={status}
