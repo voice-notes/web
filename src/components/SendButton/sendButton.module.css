@@ -11,12 +11,11 @@
 .icons {
   border: 0;
   color: #bd200c;
-  font-size: 3.4rem;
-  margin: 0;
+  font-size: 3.1rem;
+  margin: 0 10px 5px 5px;
   padding: 0;
 }
 
 .text {
-  margin-right: 5px;
   margin-top: 20px;
 }
