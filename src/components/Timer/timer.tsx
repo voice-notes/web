@@ -39,7 +39,7 @@ export const Timer = ({ isRecording, status }: Props) => {
     }
 
     return () => clearInterval(interval);
-  }, [isRecording, seconds]);
+  }, [isRecording, status, seconds]);
 
   return (
     <div className={styles.timer}>
