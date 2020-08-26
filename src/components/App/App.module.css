@@ -3,3 +3,8 @@
   color: white;
   height: 100vh;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
