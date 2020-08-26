@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './sendButton.module.css';
 
 interface Props {
   status: string;
@@ -6,7 +7,11 @@ interface Props {
 
 export const SendButton = ({ status }: Props) => {
   if (status === 'recorded') {
-    return <span>send</span>;
+    return (
+      <button className={styles.btn} id="send">
+        <span className={styles.text}>send</span>
+      </button>
+    );
   } else {
     return null;
   }
