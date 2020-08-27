@@ -1,6 +1,6 @@
 .container {
   align-items: center;
-  background-color: black;
+  background-color: var(--darkest-color);
   display: flex;
   flex-direction: column;
   height: 265px;
