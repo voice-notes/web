@@ -5,31 +5,40 @@ import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
 
 interface Props {
   isRecording: boolean;
-  status: string;
+  recordingStatus: string;
 }
 
 interface ButtonProps {
   onClickRecord: () => void;
   isRecording: boolean;
-  status: string;
+  recordingStatus: string;
 }
 
 export const RecordingButton = ({
   onClickRecord,
   isRecording,
-  status,
+  recordingStatus,
 }: ButtonProps) => {
   return (
     <button className={styles.btn} id="record" onClick={onClickRecord}>
-      <RecordingButtonIcon isRecording={isRecording} status={status} />
-      <RecordingButtonText isRecording={isRecording} status={status} />
+      <RecordingButtonIcon
+        isRecording={isRecording}
+        recordingStatus={recordingStatus}
+      />
+      <RecordingButtonText
+        isRecording={isRecording}
+        recordingStatus={recordingStatus}
+      />
     </button>
   );
 };
 
-export const RecordingButtonText = ({ isRecording, status }: Props) => {
+export const RecordingButtonText = ({
+  isRecording,
+  recordingStatus,
+}: Props) => {
   const mediaAction = isRecording ? 'Stop' : 'Start';
-  if (status === 'recorded' && isRecording === false) {
+  if (recordingStatus === 'recorded' && isRecording === false) {
     return <span className={styles.text}>Re-record</span>;
   }
   return <span className={styles.text}>{mediaAction} recording</span>;

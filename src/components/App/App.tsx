@@ -7,7 +7,7 @@ import styles from './App.module.css';
 
 export const App = () => {
   const [isRecording, setIsRecording] = useState(false);
-  const [status, setRecordingStatus] = useState('not recorded');
+  const [recordingStatus, setRecordingStatus] = useState('ready');
 
   function toggleRecording() {
     setIsRecording(!isRecording);
@@ -20,17 +20,17 @@ export const App = () => {
   return (
     <div className={styles.app}>
       <Header isRecording={isRecording} />
-      <div className={styles.buttons}>
+      <div className={styles.container}>
         <RecordingButton
           isRecording={isRecording}
-          status={status}
+          recordingStatus={recordingStatus}
           onClickRecord={() => toggleRecording()}
         />
-        <SendButton status={status} />
+        <SendButton recordingStatus={recordingStatus} />
       </div>
       <Recorder
         isRecording={isRecording}
-        status={status}
+        recordingStatus={recordingStatus}
         onClickStatus={changeRecordingStatus}
       />
     </div>

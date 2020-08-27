@@ -3,10 +3,10 @@ import styles from './timer.module.css';
 
 interface Props {
   isRecording: boolean;
-  status: string;
+  recordingStatus: string;
 }
 
-export const Timer = ({ isRecording, status }: Props) => {
+export const Timer = ({ isRecording, recordingStatus }: Props) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
 
@@ -34,12 +34,12 @@ export const Timer = ({ isRecording, status }: Props) => {
       setSeconds(0);
     };
 
-    if (isRecording && status === 'recorded') {
+    if (isRecording && recordingStatus === 'recorded') {
       resetTimer();
     }
 
     return () => clearInterval(interval);
-  }, [isRecording, status, seconds]);
+  }, [isRecording, recordingStatus, seconds]);
 
   return (
     <div className={styles.timer}>

@@ -5,11 +5,15 @@ import styles from './recorder.module.css';
 
 interface Props {
   isRecording: boolean;
-  status: string;
-  onClickStatus: any;
+  recordingStatus: string;
+  onClickStatus: (newStatus: string) => void;
 }
 
-export const Recorder = ({ isRecording, onClickStatus, status }: Props) => {
+export const Recorder = ({
+  isRecording,
+  onClickStatus,
+  recordingStatus,
+}: Props) => {
   function onData(recordedBlob: any) {
     console.log('chunk of real-time data is: ', recordedBlob);
     onClickStatus('recording');
@@ -29,7 +33,7 @@ export const Recorder = ({ isRecording, onClickStatus, status }: Props) => {
         strokeColor="#0A9E74"
         backgroundColor="#000"
       />
-      <Timer isRecording={isRecording} status={status} />
+      <Timer isRecording={isRecording} recordingStatus={recordingStatus} />
     </div>
   );
 };

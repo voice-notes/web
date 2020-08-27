@@ -4,11 +4,11 @@ import { IconContext } from 'react-icons';
 import { FiArrowRight } from 'react-icons/fi';
 
 interface Props {
-  status: string;
+  recordingStatus: string;
 }
 
-export const SendButton = ({ status }: Props) => {
-  if (status === 'recorded') {
+export const SendButton = ({ recordingStatus }: Props) => {
+  if (recordingStatus === 'recorded') {
     return (
       <button className={styles.btn} id="send">
         <IconContext.Provider value={{ className: styles.icons }}>
