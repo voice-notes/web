@@ -8,7 +8,7 @@ describe('Recorder', () => {
     const container = render(
       <Recorder
         isRecording={false}
-        status={'not recorded'}
+        recordingStatus={'not recorded'}
         onClickStatus={mockChangeRecordingStatus}
       />
     );
