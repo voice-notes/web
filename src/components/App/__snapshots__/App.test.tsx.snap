@@ -13,7 +13,7 @@ Object {
           class="buttons"
         >
           <button
-            class="btn"
+            class="button"
             id="record"
           >
             <svg
@@ -53,7 +53,7 @@ Object {
         class="buttons"
       >
         <button
-          class="btn"
+          class="button"
           id="record"
         >
           <svg
