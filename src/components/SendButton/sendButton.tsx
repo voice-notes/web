@@ -10,7 +10,7 @@ interface Props {
 export const SendButton = ({ recordingStatus }: Props) => {
   if (recordingStatus === 'recorded') {
     return (
-      <button className={styles.btn} id="send">
+      <button className={styles.button} id="send">
         <IconContext.Provider value={{ className: styles.icons }}>
           <FiArrowRight />
         </IconContext.Provider>
