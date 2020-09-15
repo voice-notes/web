@@ -4,8 +4,9 @@ import { RecordingStatus } from '../RecordingStatus/recordingStatus';
 import styles from './header.module.css';
 import { ReactComponent as TapeLogo } from '../../assets/tape.svg';
 
+type RecordingStatus = 'ready' | 'recording' | 'recorded';
 interface Props {
-  isRecording: boolean;
+  isRecording: RecordingStatus;
 }
 
 export const Header = ({ isRecording }: Props) => {
