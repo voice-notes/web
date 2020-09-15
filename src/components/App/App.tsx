@@ -5,17 +5,19 @@ import { RecordingButton } from '../RecordingButton/recordingButton';
 import { SendButton } from '../SendButton/sendButton';
 import styles from './App.module.css';
 
+type RecordingStatus = 'ready' | 'recording' | 'recorded';
+
 export const App = () => {
-  const [isRecording, setIsRecording] = useState(false);
-  const [recordingStatus, setRecordingStatus] = useState('ready');
+  const [isRecording, setIsRecording] = useState<RecordingStatus>('ready');
+  //const [recordingStatus, setRecordingStatus] = useState('ready');
 
   function toggleRecording() {
-    setIsRecording(!isRecording);
+    setIsRecording('ready');
   }
 
-  function changeRecordingStatus(newStatus: string) {
-    setRecordingStatus(newStatus);
-  }
+  // function changeRecordingStatus(newStatus: string) {
+  //   setRecordingStatus(newStatus);
+  // }
 
   return (
     <div className={styles.app}>
@@ -23,14 +25,14 @@ export const App = () => {
       <div className={styles.container}>
         <RecordingButton
           isRecording={isRecording}
-          recordingStatus={recordingStatus}
+          // recordingStatus={recordingStatus}
           onClickRecord={() => toggleRecording()}
         />
         <SendButton recordingStatus={recordingStatus} />
       </div>
       <Recorder
         isRecording={isRecording}
-        recordingStatus={recordingStatus}
+        // recordingStatus={recordingStatus}
         onClickStatus={changeRecordingStatus}
       />
     </div>
