@@ -3,53 +3,47 @@ import styles from './recordingButton.module.css';
 import { IconContext } from 'react-icons';
 import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
 
+type RecordingStatus = 'ready' | 'recording' | 'recorded';
 interface Props {
-  isRecording: boolean;
-  recordingStatus: string;
+  isRecording: RecordingStatus;
 }
 
 interface ButtonProps {
-  onClickRecord: () => void;
-  isRecording: boolean;
-  recordingStatus: string;
+  onClickRecord: (newStatus: RecordingStatus) => void;
+  isRecording: RecordingStatus;
 }
 
 export const RecordingButton = ({
   onClickRecord,
   isRecording,
-  recordingStatus,
 }: ButtonProps) => {
   return (
-    <button className={styles.button} id="record" onClick={onClickRecord}>
-      <RecordingButtonIcon
-        isRecording={isRecording}
-        recordingStatus={recordingStatus}
-      />
-      <RecordingButtonText
-        isRecording={isRecording}
-        recordingStatus={recordingStatus}
-      />
+    <button
+      className={styles.button}
+      id="record"
+      onClick={() => onClickRecord('recording')}
+    >
+      <RecordingButtonIcon isRecording={isRecording} />
+      <RecordingButtonText isRecording={isRecording} />
     </button>
   );
 };
 
-export const RecordingButtonText = ({
-  isRecording,
-  recordingStatus,
-}: Props) => {
-  const mediaAction = isRecording ? 'Stop' : 'Start';
-  if (recordingStatus === 'recorded' && isRecording === false) {
+export const RecordingButtonText = ({ isRecording }: Props) => {
+  const mediaAction = isRecording === 'recording' ? 'Stop' : 'Start';
+  if (isRecording === 'recorded') {
     return <span className={styles.text}>Re-record</span>;
   }
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
 export const RecordingButtonIcon = ({ isRecording }: Props) => {
-  const iconComponent = isRecording ? (
-    <TiMediaStopOutline />
-  ) : (
-    <TiMediaRecordOutline />
-  );
+  const iconComponent =
+    isRecording === 'recording' ? (
+      <TiMediaStopOutline />
+    ) : (
+      <TiMediaRecordOutline />
+    );
   return (
     <IconContext.Provider value={{ className: styles.icons }}>
       {iconComponent}
