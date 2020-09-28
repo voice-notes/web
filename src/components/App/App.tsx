@@ -10,8 +10,9 @@ type RecordingStatus = 'ready' | 'recording' | 'recorded';
 export const App = () => {
   const [isRecording, setIsRecording] = useState<RecordingStatus>('ready');
 
-  function toggleRecording(newStatus: RecordingStatus) {
-    setIsRecording(newStatus);
+  function toggleRecording() {
+    if (isRecording === 'recording') return setIsRecording('recorded');
+    return setIsRecording('recording');
   }
 
   return (
@@ -20,14 +21,11 @@ export const App = () => {
       <div className={styles.container}>
         <RecordingButton
           isRecording={isRecording}
-          onClickRecord={(RecordingStatus) => toggleRecording(RecordingStatus)}
+          onClickRecord={() => toggleRecording()}
         />
         <SendButton isRecording={isRecording} />
       </div>
-      <Recorder
-        isRecording={isRecording}
-        onClickRecord={(RecordingStatus) => toggleRecording(RecordingStatus)}
-      />
+      <Recorder isRecording={isRecording} />
     </div>
   );
 };

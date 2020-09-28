@@ -9,7 +9,7 @@ interface Props {
 }
 
 interface ButtonProps {
-  onClickRecord: (newStatus: RecordingStatus) => void;
+  onClickRecord: () => void;
   isRecording: RecordingStatus;
 }
 
@@ -21,7 +21,7 @@ export const RecordingButton = ({
     <button
       className={styles.button}
       id="record"
-      onClick={() => onClickRecord('recording')}
+      onClick={() => onClickRecord()}
     >
       <RecordingButtonIcon isRecording={isRecording} />
       <RecordingButtonText isRecording={isRecording} />
