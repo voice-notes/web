@@ -29,15 +29,6 @@ export const Timer = ({ isRecording }: Props) => {
       }
     };
 
-    const resetTimer = () => {
-      setMinutes(0);
-      setSeconds(0);
-    };
-
-    if (isRecording === 'recorded') {
-      resetTimer();
-    }
-
     return () => clearInterval(interval);
   }, [isRecording, seconds]);
 
