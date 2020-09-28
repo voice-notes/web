@@ -3,12 +3,13 @@ import styles from './sendButton.module.css';
 import { IconContext } from 'react-icons';
 import { FiArrowRight } from 'react-icons/fi';
 
+type RecordingStatus = 'ready' | 'recording' | 'recorded';
 interface Props {
-  recordingStatus: string;
+  isRecording: RecordingStatus;
 }
 
-export const SendButton = ({ recordingStatus }: Props) => {
-  if (recordingStatus === 'recorded') {
+export const SendButton = ({ isRecording }: Props) => {
+  if (isRecording === 'recorded') {
     return (
       <button className={styles.button} id="send">
         <IconContext.Provider value={{ className: styles.icons }}>
