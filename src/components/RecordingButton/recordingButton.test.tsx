@@ -21,18 +21,14 @@ describe('Button', () => {
 describe('Button Text', () => {
   it('displays "start recording" if not recording', () => {
     const wrapper = shallow(
-      <RecordingButtonText
-        currentRecordingStatus={'ready'}
-      />
+      <RecordingButtonText currentRecordingStatus={'ready'} />
     );
     expect(wrapper.text()).toContain('Start recording');
   });
 
   it('isRecording updates the button text', () => {
     const wrapper = shallow(
-      <RecordingButtonText
-        currentRecordingStatus={'recording'}
-      />
+      <RecordingButtonText currentRecordingStatus={'recording'} />
     );
     expect(wrapper.text()).toContain('Stop recording');
   });

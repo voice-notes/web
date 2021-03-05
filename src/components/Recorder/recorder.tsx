@@ -3,7 +3,7 @@ import { ReactMic } from 'react-mic';
 
 import { Timer } from '../Timer/timer';
 import styles from './recorder.module.css';
-import { RecordingStatus } from "../App/App";
+import { RecordingStatus } from '../App/App';
 interface Props {
   currentRecordingStatus: RecordingStatus;
 }

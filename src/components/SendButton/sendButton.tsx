@@ -3,7 +3,7 @@ import styles from './sendButton.module.css';
 import { IconContext } from 'react-icons';
 import { FiArrowRight } from 'react-icons/fi';
 
-import { RecordingStatus } from "../App/App";
+import { RecordingStatus } from '../App/App';
 interface Props {
   currentRecordingStatus: RecordingStatus;
 }
