@@ -8,24 +8,24 @@ import styles from "./App.module.css";
 export type RecordingStatus = "ready" | "recording" | "recorded";
 
 export const App = () => {
-  const [isRecording, setIsRecording] = useState<RecordingStatus>("ready");
+  const [currentRecordingStatus, setCurrentRecordingStatus] = useState<RecordingStatus>("ready");
 
   function toggleRecording() {
-    if (isRecording === "recording") return setIsRecording("recorded");
-    return setIsRecording("recording");
+    if (currentRecordingStatus === "recording") return setCurrentRecordingStatus("recorded");
+    return setCurrentRecordingStatus("recording");
   }
 
   return (
     <div className={styles.app}>
-      <Header isRecording={isRecording} />
+      <Header currentRecordingStatus={currentRecordingStatus} />
       <div className={styles.container}>
         <RecordingButton
-          isRecording={isRecording}
+          currentRecordingStatus={currentRecordingStatus}
           onClickRecord={() => toggleRecording()}
         />
-        <SendButton isRecording={isRecording} />
+        <SendButton currentRecordingStatus={currentRecordingStatus} />
       </div>
-      <Recorder isRecording={isRecording} />
+      <Recorder currentRecordingStatus={currentRecordingStatus} />
     </div>
   );
 };
