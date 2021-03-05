@@ -6,6 +6,8 @@ import { FiArrowRight } from 'react-icons/fi';
 import { RecordingStatus } from '../App/App';
 interface Props {
   currentRecordingStatus: RecordingStatus;
+  slackId: string;
+  responseUrl: string;
 }
 
 export const SendButton = ({ currentRecordingStatus }: Props) => {
