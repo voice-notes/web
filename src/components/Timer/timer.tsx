@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import styles from './timer.module.css';
-import { RecordingStatus } from "../App/App";
+import { RecordingStatus } from '../App/App';
 interface Props {
   currentRecordingStatus: RecordingStatus;
 }

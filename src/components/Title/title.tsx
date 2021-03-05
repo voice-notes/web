@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './title.module.css';
-import { RecordingStatus } from "../App/App";
+import { RecordingStatus } from '../App/App';
 interface Props {
   currentRecordingStatus: RecordingStatus;
 }

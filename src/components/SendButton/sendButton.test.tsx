@@ -14,7 +14,9 @@ describe('Button', () => {
   });
 
   it('does not display send button during recording', () => {
-    const wrapper = shallow(<SendButton currentRecordingStatus={'recording'} />);
+    const wrapper = shallow(
+      <SendButton currentRecordingStatus={'recording'} />
+    );
     expect(wrapper.text()).not.toContain('send');
   });
 });
