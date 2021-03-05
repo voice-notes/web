@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
 import { Header } from './header';
 
 it('renders correctly', () => {
-  const container = render(<Header isRecording={false} />);
+  const container = render(<Header currentRecordingStatus={'ready'} />);
   expect(container).toMatchSnapshot();
 });
