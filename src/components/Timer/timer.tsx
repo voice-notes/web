@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styles from './timer.module.css';
 
-type RecordingStatus = 'ready' | 'recording' | 'recorded';
+import styles from './timer.module.css';
+import { RecordingStatus } from "../App/App";
 interface Props {
-  isRecording: RecordingStatus;
+  currentRecordingStatus: RecordingStatus;
 }
 
-export const Timer = ({ isRecording }: Props) => {
+export const Timer = ({ currentRecordingStatus }: Props) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
 
@@ -14,11 +14,11 @@ export const Timer = ({ isRecording }: Props) => {
 
   useEffect(() => {
     let interval: any;
-    if (isRecording === 'recording') {
+    if (currentRecordingStatus === 'recording') {
       interval = setInterval(() => {
         setTime();
       }, 1000);
-    } else if (isRecording === 'recorded' && seconds !== 0) {
+    } else if (currentRecordingStatus === 'recorded' && seconds !== 0) {
       clearInterval(interval);
     }
     const setTime = () => {
@@ -30,7 +30,7 @@ export const Timer = ({ isRecording }: Props) => {
     };
 
     return () => clearInterval(interval);
-  }, [isRecording, seconds]);
+  }, [currentRecordingStatus, seconds]);
 
   return (
     <div className={styles.timer}>
