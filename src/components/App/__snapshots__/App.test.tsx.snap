@@ -10,7 +10,7 @@ Object {
       >
         
         <div
-          class="buttons"
+          class="container"
         >
           <button
             class="button"
@@ -50,7 +50,7 @@ Object {
     >
       
       <div
-        class="buttons"
+        class="container"
       >
         <button
           class="button"
