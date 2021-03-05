@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Header } from '../Header/header';
-import { Recorder } from '../Recorder/recorder';
-import { RecordingButton } from '../RecordingButton/recordingButton';
-import { SendButton } from '../SendButton/sendButton';
-import styles from './App.module.css';
+import React, { useState } from "react";
+import { Header } from "../Header/header";
+import { Recorder } from "../Recorder/recorder";
+import { RecordingButton } from "../RecordingButton/recordingButton";
+import { SendButton } from "../SendButton/sendButton";
+import styles from "./App.module.css";
 
-type RecordingStatus = 'ready' | 'recording' | 'recorded';
+export type RecordingStatus = "ready" | "recording" | "recorded";
 
 export const App = () => {
-  const [isRecording, setIsRecording] = useState<RecordingStatus>('ready');
+  const [isRecording, setIsRecording] = useState<RecordingStatus>("ready");
 
   function toggleRecording() {
-    if (isRecording === 'recording') return setIsRecording('recorded');
-    return setIsRecording('recording');
+    if (isRecording === "recording") return setIsRecording("recorded");
+    return setIsRecording("recording");
   }
 
   return (
