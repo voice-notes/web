@@ -4,19 +4,18 @@ import { IconContext } from "react-icons";
 import { TiMediaRecordOutline, TiMediaStopOutline } from "react-icons/ti";
 
 import { RecordingStatus } from "../App/App";
-// type RecordingStatus = 'ready' | 'recording' | 'recorded';
 interface Props {
-  isRecording: RecordingStatus;
+  currentRecordingStatus: RecordingStatus;
 }
 
 interface ButtonProps {
   onClickRecord: () => void;
-  isRecording: RecordingStatus;
+  currentRecordingStatus: RecordingStatus;
 }
 
 export const RecordingButton = ({
   onClickRecord,
-  isRecording,
+  currentRecordingStatus,
 }: ButtonProps) => {
   return (
     <button
@@ -24,27 +23,27 @@ export const RecordingButton = ({
       id="record"
       onClick={() => onClickRecord()}
     >
-      <RecordingButtonIcon isRecording={isRecording} />
-      <RecordingButtonText isRecording={isRecording} />
+      <RecordingButtonIcon currentRecordingStatus={currentRecordingStatus} />
+      <RecordingButtonText currentRecordingStatus={currentRecordingStatus} />
     </button>
   );
 };
 
-export const RecordingButtonText = ({ isRecording }: Props) => {
-  const mediaAction = isRecording === "recording" ? "Stop" : "Start";
-  if (isRecording === "recorded") {
+export const RecordingButtonText = ({ currentRecordingStatus }: Props) => {
+  const mediaAction = currentRecordingStatus === "recording" ? "Stop" : "Start";
+  if (currentRecordingStatus === "recorded") {
     return <span className={styles.text}>Re-record</span>;
   }
   return <span className={styles.text}>{mediaAction} recording</span>;
 };
 
-export const RecordingButtonIcon = ({ isRecording }: Props) => {
+export const RecordingButtonIcon = ({ currentRecordingStatus }: Props) => {
   const iconComponent =
-    isRecording === "recording" ? (
+    currentRecordingStatus === "recording" ? (
       <TiMediaStopOutline />
     ) : (
-      <TiMediaRecordOutline />
-    );
+        <TiMediaRecordOutline />
+      );
   return (
     <IconContext.Provider value={{ className: styles.icons }}>
       {iconComponent}
