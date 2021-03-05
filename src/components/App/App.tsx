@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import queryString from 'query-string';
+
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
 import { RecordingButton } from '../RecordingButton/recordingButton';
@@ -11,6 +13,14 @@ export const App = () => {
   const [currentRecordingStatus, setCurrentRecordingStatus] = useState<
     RecordingStatus
   >('ready');
+
+  const [queryParams, setQueryParams] = useState({});
+
+  useEffect(() => {
+    const params = window.location.search;
+    const parsedParams = queryString.parse(params);
+    setQueryParams(parsedParams);
+  }, []);
 
   function toggleRecording() {
     if (currentRecordingStatus === 'recording')
