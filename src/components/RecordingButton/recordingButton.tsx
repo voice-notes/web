@@ -1,9 +1,10 @@
-import React from 'react';
-import styles from './recordingButton.module.css';
-import { IconContext } from 'react-icons';
-import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
+import React from "react";
+import styles from "./recordingButton.module.css";
+import { IconContext } from "react-icons";
+import { TiMediaRecordOutline, TiMediaStopOutline } from "react-icons/ti";
 
-type RecordingStatus = 'ready' | 'recording' | 'recorded';
+import { RecordingStatus } from "../App/App";
+// type RecordingStatus = 'ready' | 'recording' | 'recorded';
 interface Props {
   isRecording: RecordingStatus;
 }
@@ -30,8 +31,8 @@ export const RecordingButton = ({
 };
 
 export const RecordingButtonText = ({ isRecording }: Props) => {
-  const mediaAction = isRecording === 'recording' ? 'Stop' : 'Start';
-  if (isRecording === 'recorded') {
+  const mediaAction = isRecording === "recording" ? "Stop" : "Start";
+  if (isRecording === "recorded") {
     return <span className={styles.text}>Re-record</span>;
   }
   return <span className={styles.text}>{mediaAction} recording</span>;
@@ -39,7 +40,7 @@ export const RecordingButtonText = ({ isRecording }: Props) => {
 
 export const RecordingButtonIcon = ({ isRecording }: Props) => {
   const iconComponent =
-    isRecording === 'recording' ? (
+    isRecording === "recording" ? (
       <TiMediaStopOutline />
     ) : (
       <TiMediaRecordOutline />
