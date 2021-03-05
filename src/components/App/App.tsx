@@ -7,6 +7,8 @@ import { RecordingButton } from '../RecordingButton/recordingButton';
 import { SendButton } from '../SendButton/sendButton';
 import styles from './App.module.css';
 
+const baseResponseUrl = process.env.REACT_APP_BASE_RES_URL;
+
 export type RecordingStatus = 'ready' | 'recording' | 'recorded';
 
 export const App = () => {
@@ -14,12 +16,16 @@ export const App = () => {
     RecordingStatus
   >('ready');
 
-  const [queryParams, setQueryParams] = useState({});
+  const [responseUrl, setResponseUrl] = useState();
+  const [slackId, setSlackId] = useState();
 
   useEffect(() => {
     const params = window.location.search;
     const parsedParams = queryString.parse(params);
-    setQueryParams(parsedParams);
+    const { sender, p1, p2, p3 } = parsedParams;
+    const responseUrl = `${baseResponseUrl}/${p1}/${p2}/${p3}`;
+    setResponseUrl(responseUrl);
+    setSlackId(sender);
   }, []);
 
   function toggleRecording() {
@@ -36,7 +42,11 @@ export const App = () => {
           currentRecordingStatus={currentRecordingStatus}
           onClickRecord={() => toggleRecording()}
         />
-        <SendButton currentRecordingStatus={currentRecordingStatus} />
+        <SendButton
+          currentRecordingStatus={currentRecordingStatus}
+          slackId={slackId}
+          responseUrl={responseUrl}
+        />
       </div>
       <Recorder currentRecordingStatus={currentRecordingStatus} />
     </div>
