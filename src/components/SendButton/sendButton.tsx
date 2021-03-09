@@ -13,23 +13,30 @@ interface Props {
   recordedBlob: any;
 }
 
-export const SendButton = ({ currentRecordingStatus, slackId, responseUrl, recordedBlob }: Props) => {
-
-  const [audioUrl, setAudioUrl] = useState<string >("");
+export const SendButton = ({
+  currentRecordingStatus,
+  slackId,
+  responseUrl,
+  recordedBlob,
+}: Props) => {
+  const [audioUrl, setAudioUrl] = useState<string>('');
 
   const handleSend = async () => {
     try {
-      await axios.post("AWS url", {blob: recordedBlob});
-      sendToBackEnd()
-    } catch(error) {
+      await axios.post('AWS url', { blob: recordedBlob });
+      sendToBackEnd();
+    } catch (error) {
       console.error(error);
-    }  
+    }
   };
 
   const sendToBackEnd = async () => {
-    await axios.post("backend url", {slackId: slackId, responseUrl: responseUrl, audioUrl: audioUrl})
+    await axios.post('backend url', {
+      slackId: slackId,
+      responseUrl: responseUrl,
+      audioUrl: audioUrl,
+    });
   };
-
 
   if (currentRecordingStatus === 'recorded') {
     return (

@@ -7,7 +7,7 @@ import { RecordingStatus } from '../App/App';
 
 interface Props {
   currentRecordingStatus: RecordingStatus;
-  saveBlob: (blob: any) => void; 
+  saveBlob: (blob: any) => void;
 }
 
 export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
@@ -16,7 +16,7 @@ export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
   }
 
   function onStop(recordedBlob: any) {
-    saveBlob(recordedBlob)
+    saveBlob(recordedBlob);
     console.log('recordedBlob is: ', recordedBlob);
   }
 
