@@ -50,7 +50,7 @@ describe('Button', () => {
   });
 
   it('sends a post request to AWS', async () => {
-    axios.post = jest.fn();
+    axios.post = jest.fn().mockReturnValue({ url: 'testAudioUrl' });
     const wrapper = shallow(
       <SendButton
         currentRecordingStatus={'recorded'}
@@ -59,8 +59,12 @@ describe('Button', () => {
         recordedBlob={''}
       />
     );
-    await wrapper.find("#send").simulate('click')
-    expect(axios.post).toHaveBeenCalledWith("AWS url", {blob: ''})
-    expect(axios.post).toHaveBeenCalledWith("backend url", {slackId: '', responseUrl: '', audioUrl: ''})
-  })
+    await wrapper.find('#send').simulate('click');
+    expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
+    expect(axios.post).toHaveBeenCalledWith('backend url', {
+      slackId: '',
+      responseUrl: '',
+      audioUrl: 'testAudioUrl',
+    });
+  });
 });
