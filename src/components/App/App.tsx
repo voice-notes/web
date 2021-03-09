@@ -16,9 +16,9 @@ export const App = () => {
     RecordingStatus
   >('ready');
 
-  const [responseUrl, setResponseUrl] = useState<string >("");
-  const [slackId, setSlackId] = useState<string >("");
-  const [recordedBlob, setRecordedBlob] = useState<any >();
+  const [responseUrl, setResponseUrl] = useState<string>('');
+  const [slackId, setSlackId] = useState<string>('');
+  const [recordedBlob, setRecordedBlob] = useState<any>();
 
   useEffect(() => {
     const params = window.location.search;
@@ -26,7 +26,7 @@ export const App = () => {
     const { sender, p1, p2, p3 } = parsedParams;
     const responseUrl = `${baseResponseUrl}/${p1}/${p2}/${p3}`;
     setResponseUrl(responseUrl);
-    if (typeof sender === "string") {
+    if (typeof sender === 'string') {
       setSlackId(sender);
     }
   }, []);
@@ -39,7 +39,7 @@ export const App = () => {
 
   function saveRecordedBlob(blob: any) {
     setRecordedBlob(blob);
-  };
+  }
 
   return (
     <div className={styles.app}>
@@ -56,7 +56,10 @@ export const App = () => {
           recordedBlob={recordedBlob}
         />
       </div>
-      <Recorder currentRecordingStatus={currentRecordingStatus} saveBlob={saveRecordedBlob}/>
+      <Recorder
+        currentRecordingStatus={currentRecordingStatus}
+        saveBlob={saveRecordedBlob}
+      />
     </div>
   );
 };
