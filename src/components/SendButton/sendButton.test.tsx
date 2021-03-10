@@ -70,7 +70,7 @@ describe('Button', () => {
     );
     await fireEvent.click(getByText('send'));
     expect(axios.post).toHaveBeenCalledTimes(2);
-    // expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
+    expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
     setImmediate(() => {
       expect(axios.post).toHaveBeenCalledWith('backend url', {
         slackId: '',
