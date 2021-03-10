@@ -23,12 +23,32 @@ export const SendButton = ({
 
   const handleSend = async () => {
     try {
-      await axios.post('AWS url', { blob: recordedBlob });
+      sendToAWS();
+      console.log(audioUrl);
       sendToBackEnd();
     } catch (error) {
       console.error(error);
     }
   };
+
+  const sendToAWS = async () => {
+    try {
+      const response = await axios.post('AWS url', { blob: recordedBlob });
+      const { url } = response.data;
+      console.log(response);
+      setAudioUrl(url);
+      console.log(audioUrl);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log(audioUrl);
+    if (audioUrl !== '') {
+      sendToBackEnd();
+    }
+  }, [audioUrl]);
 
   const sendToBackEnd = async () => {
     await axios.post('backend url', {
