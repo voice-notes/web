@@ -30,10 +30,10 @@ export const Timer = ({ currentRecordingStatus }: Props) => {
     };
 
     return () => clearInterval(interval);
-  }, [currentRecordingStatus, seconds]);
+  }, [currentRecordingStatus]);
 
   return (
-    <div className={styles.timer}>
+    <div data-testid="timeDisplay" className={styles.timer}>
       {formatValue(minutes)}:{formatValue(seconds)}
     </div>
   );
