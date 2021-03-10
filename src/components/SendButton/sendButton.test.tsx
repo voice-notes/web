@@ -1,4 +1,5 @@
 import React from 'react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 
@@ -11,6 +12,7 @@ describe('Button', () => {
         currentRecordingStatus={'recorded'}
         slackId={''}
         responseUrl={''}
+        recordedBlob={''}
       />
     );
     expect(wrapper.text()).toContain('send');
@@ -22,6 +24,7 @@ describe('Button', () => {
         currentRecordingStatus={'ready'}
         slackId={''}
         responseUrl={''}
+        recordedBlob={''}
       />
     );
     expect(wrapper.text()).not.toContain('send');
@@ -33,6 +36,7 @@ describe('Button', () => {
         currentRecordingStatus={'recording'}
         slackId={''}
         responseUrl={''}
+        recordedBlob={''}
       />
     );
     expect(wrapper.text()).not.toContain('send');
@@ -44,14 +48,19 @@ describe('Button', () => {
         currentRecordingStatus={'recording'}
         slackId={''}
         responseUrl={''}
+        recordedBlob={''}
       />
     );
     expect(wrapper.text()).not.toContain('send');
   });
 
   it('sends a post request to AWS', async () => {
-    axios.post = jest.fn().mockReturnValue({ url: 'testAudioUrl' });
-    const wrapper = shallow(
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        url: 'testAudioUrl',
+      },
+    });
+    const { getByText } = render(
       <SendButton
         currentRecordingStatus={'recorded'}
         slackId={''}
@@ -59,12 +68,15 @@ describe('Button', () => {
         recordedBlob={''}
       />
     );
-    await wrapper.find('#send').simulate('click');
-    expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
-    expect(axios.post).toHaveBeenCalledWith('backend url', {
-      slackId: '',
-      responseUrl: '',
-      audioUrl: 'testAudioUrl',
+    await fireEvent.click(getByText('send'));
+    expect(axios.post).toHaveBeenCalledTimes(2);
+    // expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
+    setImmediate(() => {
+      expect(axios.post).toHaveBeenCalledWith('backend url', {
+        slackId: '',
+        responseUrl: '',
+        audioUrl: 'testAudioUrl',
+      });
     });
   });
 });
