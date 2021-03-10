@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import queryString from 'query-string';
 
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
 import { RecordingButton } from '../RecordingButton/recordingButton';
 import { SendButton } from '../SendButton/sendButton';
+import { returnParsedParams } from '../../utils/returnParsedParams';
 import styles from './App.module.css';
-
-const baseResponseUrl = process.env.REACT_APP_BASE_RES_URL;
+import { REACT_APP_BASE_RES_URL } from '../../envVarConfig';
 
 export type RecordingStatus = 'ready' | 'recording' | 'recorded';
 
@@ -21,10 +20,8 @@ export const App = () => {
   const [recordedBlob, setRecordedBlob] = useState<any>();
 
   useEffect(() => {
-    const params = window.location.search;
-    const parsedParams = queryString.parse(params);
-    const { sender, p1, p2, p3 } = parsedParams;
-    const responseUrl = `${baseResponseUrl}/${p1}/${p2}/${p3}`;
+    const { sender, p1, p2, p3 } = returnParsedParams();
+    const responseUrl = `${REACT_APP_BASE_RES_URL}/${p1}/${p2}/${p3}`;
     setResponseUrl(responseUrl);
     if (typeof sender === 'string') {
       setSlackId(sender);
