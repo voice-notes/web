@@ -43,18 +43,6 @@ describe('Button', () => {
     expect(wrapper.text()).not.toContain('send');
   });
 
-  it('does not display send button during recording', () => {
-    const wrapper = shallow(
-      <SendButton
-        currentRecordingStatus={'recording'}
-        slackId={''}
-        responseUrl={''}
-        recordedBlob={''}
-      />
-    );
-    expect(wrapper.text()).not.toContain('send');
-  });
-
   it('sends a post request to AWS', async () => {
     axios.post = jest.fn().mockResolvedValue({
       data: {
