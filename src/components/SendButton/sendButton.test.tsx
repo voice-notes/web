@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 
+import { REACT_APP_BACKEND_GRAPHQL_ENDPOINT } from '../../envVarConfig';
 import { SendButton } from './sendButton';
 
 describe('Button', () => {
@@ -72,7 +73,7 @@ describe('Button', () => {
     expect(axios.post).toHaveBeenCalledTimes(2);
     expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
     setImmediate(() => {
-      expect(axios.post).toHaveBeenCalledWith('backend url', {
+      expect(axios.post).toHaveBeenCalledWith(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
         slackId: '',
         responseUrl: '',
         audioUrl: 'testAudioUrl',
