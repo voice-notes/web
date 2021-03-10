@@ -11,6 +11,7 @@ Object {
         
         <div
           class="timer"
+          data-testid="timeDisplay"
         >
           00
           :
@@ -26,6 +27,7 @@ Object {
       
       <div
         class="timer"
+        data-testid="timeDisplay"
       >
         00
         :
