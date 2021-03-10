@@ -24,7 +24,6 @@ export const SendButton = ({
   const handleSend = async () => {
     try {
       sendToAWS();
-      console.log(audioUrl);
       sendToBackEnd();
     } catch (error) {
       console.error(error);
@@ -35,16 +34,13 @@ export const SendButton = ({
     try {
       const response = await axios.post('AWS url', { blob: recordedBlob });
       const { url } = response.data;
-      console.log(response);
       setAudioUrl(url);
-      console.log(audioUrl);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    console.log(audioUrl);
     if (audioUrl !== '') {
       sendToBackEnd();
     }
