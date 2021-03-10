@@ -4,6 +4,7 @@ import { IconContext } from 'react-icons';
 import { FiArrowRight } from 'react-icons/fi';
 import axios from 'axios';
 
+import { REACT_APP_BACKEND_GRAPHQL_ENDPOINT } from '../../envVarConfig';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
@@ -47,7 +48,7 @@ export const SendButton = ({
   }, [audioUrl]);
 
   const sendToBackEnd = async () => {
-    await axios.post('backend url', {
+    await axios.post(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
       slackId: slackId,
       responseUrl: responseUrl,
       audioUrl: audioUrl,
