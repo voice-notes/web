@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 
 import { Timer } from './timer';
 
@@ -21,7 +21,9 @@ describe('Timer', () => {
         recordingExists={false}
       ></Timer>
     );
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(getByTestId('timeDisplay').textContent).toContain('00:01');
     jest.useRealTimers();
   });
@@ -32,12 +34,16 @@ describe('Timer', () => {
         recordingExists={false}
       ></Timer>
     );
-    jest.advanceTimersByTime(3000);
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
     expect(getByTestId('timeDisplay').textContent).toContain('00:03');
     rerender(
       <Timer currentRecordingStatus={'recorded'} recordingExists={true}></Timer>
     );
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(getByTestId('timeDisplay').textContent).toContain('00:03');
     rerender(
       <Timer
@@ -45,8 +51,11 @@ describe('Timer', () => {
         recordingExists={true}
       ></Timer>
     );
-    jest.advanceTimersByTime(1000);
     expect(getByTestId('timeDisplay').textContent).toContain('00:00');
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    expect(getByTestId('timeDisplay').textContent).toContain('00:01');
     jest.useRealTimers();
   });
 });
