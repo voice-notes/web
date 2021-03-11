@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReactMic } from 'react-mic';
 
 import { Timer } from '../Timer/timer';
@@ -11,12 +11,15 @@ interface Props {
 }
 
 export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
+  const [recordingExists, setRecordingExists] = useState<boolean>(false);
+
   function onData(recordedBlob: any) {
     console.log('chunk of real-time data is: ', recordedBlob);
   }
 
   function onStop(recordedBlob: any) {
     saveBlob(recordedBlob);
+    setRecordingExists(true);
     console.log('recordedBlob is: ', recordedBlob);
   }
 
@@ -33,7 +36,10 @@ export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
         strokeColor="#0A9E74"
         backgroundColor="#000"
       />
-      <Timer currentRecordingStatus={currentRecordingStatus} />
+      <Timer
+        currentRecordingStatus={currentRecordingStatus}
+        recordingExists={recordingExists}
+      />
     </div>
   );
 };
