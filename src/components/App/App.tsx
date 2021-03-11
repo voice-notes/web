@@ -32,11 +32,11 @@ export const App = () => {
     if (currentRecordingStatus === 'recording')
       return setCurrentRecordingStatus('recorded');
     return setCurrentRecordingStatus('recording');
-  }
+  };
 
   const saveRecordedBlob = (blob: any) => {
     setRecordedBlob(blob);
-  }
+  };
 
   return (
     <div className={styles.app}>
