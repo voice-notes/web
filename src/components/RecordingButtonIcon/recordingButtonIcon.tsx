@@ -6,19 +6,19 @@ import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
-    currentRecordingStatus: RecordingStatus;
-  }
+  currentRecordingStatus: RecordingStatus;
+}
 
 export const RecordingButtonIcon = ({ currentRecordingStatus }: Props) => {
-    const iconComponent =
-      currentRecordingStatus === 'recording' ? (
-        <TiMediaStopOutline />
-      ) : (
-        <TiMediaRecordOutline />
-      );
-    return (
-      <IconContext.Provider value={{ className: styles.icons }}>
-        {iconComponent}
-      </IconContext.Provider>
+  const iconComponent =
+    currentRecordingStatus === 'recording' ? (
+      <TiMediaStopOutline />
+    ) : (
+      <TiMediaRecordOutline />
     );
+  return (
+    <IconContext.Provider value={{ className: styles.icons }}>
+      {iconComponent}
+    </IconContext.Provider>
+  );
 };
