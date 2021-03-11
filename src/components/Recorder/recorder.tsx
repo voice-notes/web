@@ -13,17 +13,17 @@ interface Props {
 export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
   const [recordingExists, setRecordingExists] = useState<boolean>(false);
 
-  function onData(recordedBlob: any) {
+  const onData = (recordedBlob: any) => {
     console.log('chunk of real-time data is: ', recordedBlob);
   }
 
-  function onStop(recordedBlob: any) {
+  const onStop = (recordedBlob: any) => {
     saveBlob(recordedBlob);
     setRecordingExists(true);
     console.log('recordedBlob is: ', recordedBlob);
   }
 
-  function isRecording() {
+  const isRecording = () => {
     return currentRecordingStatus === 'recording';
   }
 
