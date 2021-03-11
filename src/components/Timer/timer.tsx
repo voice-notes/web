@@ -26,7 +26,7 @@ export const Timer = ({ currentRecordingStatus, recordingExists }: Props) => {
         resetTimer();
         setHasReset(true);
       }
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         setTime();
       }, 1000);
     } else if (currentRecordingStatus === 'recorded' && seconds !== 0) {
