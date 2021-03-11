@@ -4,17 +4,30 @@ import styles from './timer.module.css';
 import { RecordingStatus } from '../App/App';
 interface Props {
   currentRecordingStatus: RecordingStatus;
+  recordingExists: boolean;
 }
 
-export const Timer = ({ currentRecordingStatus }: Props) => {
+export const Timer = ({ currentRecordingStatus, recordingExists }: Props) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
 
   const formatValue = (value: number) => `${value < 10 ? `0${value}` : value}`;
 
+  // useEffect(() => {
+  //   const resetTime = () => {
+  //     setSeconds(0);
+  //     setMinutes(0);
+  //   };
+  //   if (currentRecordingStatus === 'recording' && recordingExists === true) {
+  //     resetTime();
+  //   }
+  // }, [recordingExists]);
+
   useEffect(() => {
     let interval: any;
     if (currentRecordingStatus === 'recording') {
+      setSeconds(0);
+      setMinutes(0);
       interval = setInterval(() => {
         setTime();
       }, 1000);
@@ -30,7 +43,7 @@ export const Timer = ({ currentRecordingStatus }: Props) => {
     };
 
     return () => clearInterval(interval);
-  }, [currentRecordingStatus]);
+  }, [currentRecordingStatus, seconds]);
 
   return (
     <div data-testid="timeDisplay" className={styles.timer}>
