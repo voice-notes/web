@@ -15,17 +15,17 @@ export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
 
   const onData = (recordedBlob: any) => {
     console.log('chunk of real-time data is: ', recordedBlob);
-  }
+  };
 
   const onStop = (recordedBlob: any) => {
     saveBlob(recordedBlob);
     setRecordingExists(true);
     console.log('recordedBlob is: ', recordedBlob);
-  }
+  };
 
   const isRecording = () => {
     return currentRecordingStatus === 'recording';
-  }
+  };
 
   return (
     <div className={styles.container}>
