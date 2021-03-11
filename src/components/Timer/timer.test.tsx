@@ -27,7 +27,7 @@ describe('Timer', () => {
     expect(getByTestId('timeDisplay').textContent).toContain('00:01');
     jest.useRealTimers();
   });
-  it('is displays 00:01 after 1 second of subsequent recordings', async () => {
+  it('it resets before rerecording', async () => {
     const { getByTestId, rerender } = render(
       <Timer
         currentRecordingStatus={'recording'}
