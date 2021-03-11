@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 
@@ -57,7 +57,10 @@ describe('Button', () => {
         recordedBlob={''}
       />
     );
-    await fireEvent.click(getByText('send'));
+
+    await act(async () => {
+      fireEvent.click(getByText('send'));
+    });
 
     setImmediate(() => {
       expect(axios.post).toHaveBeenCalledTimes(2);
