@@ -28,13 +28,13 @@ export const App = () => {
     }
   }, []);
 
-  function toggleRecording() {
+  const toggleRecording = () => {
     if (currentRecordingStatus === 'recording')
       return setCurrentRecordingStatus('recorded');
     return setCurrentRecordingStatus('recording');
   }
 
-  function saveRecordedBlob(blob: any) {
+  const saveRecordedBlob = (blob: any) => {
     setRecordedBlob(blob);
   }
 
