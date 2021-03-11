@@ -25,7 +25,6 @@ export const SendButton = ({
   const handleSend = async () => {
     try {
       sendToAWS();
-      sendToBackEnd();
     } catch (error) {
       console.error(error);
     }
@@ -42,18 +41,17 @@ export const SendButton = ({
   };
 
   useEffect(() => {
+    const sendToBackEnd = async () => {
+      await axios.post(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
+        slackId: slackId,
+        responseUrl: responseUrl,
+        audioUrl: audioUrl,
+      });
+    };
     if (audioUrl !== '') {
       sendToBackEnd();
     }
-  }, [audioUrl]);
-
-  const sendToBackEnd = async () => {
-    await axios.post(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
-      slackId: slackId,
-      responseUrl: responseUrl,
-      audioUrl: audioUrl,
-    });
-  };
+  }, [audioUrl, slackId, responseUrl]);
 
   if (currentRecordingStatus === 'recorded') {
     return (
