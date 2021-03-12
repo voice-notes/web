@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, screen } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 
@@ -49,7 +49,7 @@ describe('Button', () => {
         url: 'testAudioUrl',
       },
     });
-    const { getByText } = render(
+    render(
       <SendButton
         currentRecordingStatus={'recorded'}
         slackId={''}
@@ -59,7 +59,7 @@ describe('Button', () => {
     );
 
     await act(async () => {
-      fireEvent.click(getByText('send'));
+      fireEvent.click(screen.getByText('send'));
     });
 
     setImmediate(() => {
