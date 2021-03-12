@@ -26,6 +26,7 @@ describe('Timer', () => {
     });
     expect(screen.getByTestId('timeDisplay').textContent).toContain('00:01');
     jest.useRealTimers();
+    jest.clearAllTimers();
   });
   it('it resets before rerecording', async () => {
     const { rerender } = render(
@@ -57,5 +58,6 @@ describe('Timer', () => {
     });
     expect(screen.getByTestId('timeDisplay').textContent).toContain('00:01');
     jest.useRealTimers();
+    jest.clearAllTimers();
   });
 });
