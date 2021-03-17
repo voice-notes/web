@@ -5,13 +5,14 @@ import { FiArrowRight } from 'react-icons/fi';
 import axios from 'axios';
 
 import { REACT_APP_BACKEND_GRAPHQL_ENDPOINT } from '../../envVarConfig';
+import { sendFile } from '../../utils/sendFile';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
   currentRecordingStatus: RecordingStatus;
   slackId: string;
   responseUrl: string;
-  recordedBlob: any;
+  recordedBlob: Blob;
 }
 
 export const SendButton = ({
@@ -20,7 +21,7 @@ export const SendButton = ({
   responseUrl,
   recordedBlob,
 }: Props) => {
-  const [audioUrl, setAudioUrl] = useState<string>('');
+  // const [audioUrl, setAudioUrl] = useState<string>('');
 
   const handleSend = async () => {
     try {
@@ -32,26 +33,26 @@ export const SendButton = ({
 
   const sendToAWS = async () => {
     try {
-      const response = await axios.post('AWS url', { blob: recordedBlob });
-      const { url } = response.data;
-      setAudioUrl(url);
+      sendFile(recordedBlob, slackId)
+      // const { url } = response.data;
+      // setAudioUrl(url);
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    const sendToBackEnd = async () => {
-      await axios.post(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
-        slackId: slackId,
-        responseUrl: responseUrl,
-        audioUrl: audioUrl,
-      });
-    };
-    if (audioUrl !== '') {
-      sendToBackEnd();
-    }
-  }, [audioUrl, slackId, responseUrl]);
+  // useEffect(() => {
+  //   const sendToBackEnd = async () => {
+  //     await axios.post(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
+  //       slackId: slackId,
+  //       responseUrl: responseUrl,
+  //       audioUrl: audioUrl,
+  //     });
+  //   };
+  //   if (audioUrl !== '') {
+  //     sendToBackEnd();
+  //   }
+  // }, [audioUrl, slackId, responseUrl]);
 
   if (currentRecordingStatus === 'recorded') {
     return (
