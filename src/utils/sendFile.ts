@@ -14,15 +14,16 @@ const loginParams = {
   s3BucketEndpoint: true,
 };
 
-const uploadParams = {
-  Bucket: `${REACT_APP_BUCKET_NAME}`,
-  Key: 'Test',
-  Body: 'this is the body',
-};
-
 const client = new S3Client({ credentials: loginParams, region: 'eu-west-2' });
 
-export const sendFile = async () => {
+export const sendFile = async (file: Blob, slackId: string) => {
+
+  const uploadParams = {
+    Bucket: `${REACT_APP_BUCKET_NAME}`,
+    Key: `${slackId}@${Date.now()}`,
+    Body: file
+  };
+
   try {
     const file = new PutObjectCommand(uploadParams);
     const data = await client.send(file);
