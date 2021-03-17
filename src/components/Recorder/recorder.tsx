@@ -35,6 +35,7 @@ export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
         onData={onData}
         strokeColor="#0A9E74"
         backgroundColor="#000"
+        mimeType="audio/wav"
       />
       <Timer
         currentRecordingStatus={currentRecordingStatus}
