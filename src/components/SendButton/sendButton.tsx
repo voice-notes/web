@@ -33,7 +33,7 @@ export const SendButton = ({
 
   const sendToAWS = async () => {
     try {
-      sendFile(recordedBlob, slackId)
+      sendFile(recordedBlob, slackId);
       // const { url } = response.data;
       // setAudioUrl(url);
     } catch (error) {
