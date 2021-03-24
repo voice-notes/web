@@ -20,7 +20,7 @@ const client = new S3Client({
   region: REACT_APP_AWS_REGION,
 });
 
-export const sendFile = async (file: Blob, slackId: string) => {
+export const sendFile = async (file: any, slackId: string) => {
   const uploadParams = {
     Bucket: `${REACT_APP_BUCKET_NAME}`,
     Key: `${slackId}@${Date.now()}`,
