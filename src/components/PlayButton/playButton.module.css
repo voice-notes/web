@@ -1,0 +1,23 @@
+.button {
+  background-color: var(--darkest-color);
+  border-radius: 50px 50px 0 0;
+  display: flex;
+  font-family: var(--primary-font);
+  padding: 7.5px;
+  text-align: center;
+  width: 200px;
+}
+
+.icons {
+  border: 0;
+  color: #bd200c;
+  font-size: 2.5rem;
+  margin-left: 10px;
+  margin-top: 5px;
+  padding: 0;
+}
+
+.text {
+  margin-top: 20px;
+  margin-left: 10px;
+}
