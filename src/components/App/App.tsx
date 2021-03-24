@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import { Player } from '../Player/player';
 import { Header } from '../Header/header';
 import { Recorder } from '../Recorder/recorder';
 import { RecordingButton } from '../RecordingButton/recordingButton';
 import { SendButton } from '../SendButton/sendButton';
+import { PlayButton } from '../PlayButton/playButton';
 import { returnParsedParams } from '../../utils/returnParsedParams';
 import styles from './App.module.css';
 import { REACT_APP_BASE_RES_URL } from '../../envVarConfig';
@@ -18,6 +20,7 @@ export const App = () => {
   const [responseUrl, setResponseUrl] = useState<string>('');
   const [slackId, setSlackId] = useState<string>('');
   const [recordedBlob, setRecordedBlob] = useState<any>();
+  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     const { sender, p1, p2, p3 } = returnParsedParams();
@@ -38,10 +41,20 @@ export const App = () => {
     setRecordedBlob(blob);
   };
 
+  const returnBlobURL = () => {
+    if (recordedBlob && recordedBlob.hasOwnProperty('blobURL')) {
+      return recordedBlob.blobURL
+    }
+  }
+
   return (
     <div className={styles.app}>
       <Header currentRecordingStatus={currentRecordingStatus} />
       <div className={styles.container}>
+        <PlayButton 
+          currentRecordingStatus={currentRecordingStatus}
+          setIsPlaying={setIsPlaying}
+        />
         <RecordingButton
           currentRecordingStatus={currentRecordingStatus}
           onClickRecord={() => toggleRecording()}
@@ -57,6 +70,7 @@ export const App = () => {
         currentRecordingStatus={currentRecordingStatus}
         saveBlob={saveRecordedBlob}
       />
+      <Player url={returnBlobURL()} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
     </div>
   );
 };
