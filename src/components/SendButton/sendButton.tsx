@@ -12,7 +12,7 @@ interface Props {
   currentRecordingStatus: RecordingStatus;
   slackId: string;
   responseUrl: string;
-  recordedBlob: Blob;
+  recordedBlob: any;
 }
 
 export const SendButton = ({
