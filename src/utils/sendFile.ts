@@ -21,7 +21,6 @@ const client = new S3Client({
 });
 
 export const sendFile = async (file: any, slackId: string, keyName: string) => {
-  console.log(slackId);
   const uploadParams = {
     Bucket: `${REACT_APP_BUCKET_NAME}`,
     Key: keyName,
@@ -31,8 +30,7 @@ export const sendFile = async (file: any, slackId: string, keyName: string) => {
   };
   try {
     const file = new PutObjectCommand(uploadParams);
-    const data = await client.send(file);
-    console.log(data);
+    await client.send(file);
   } catch (error) {
     console.error(error);
   }
