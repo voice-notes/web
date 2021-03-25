@@ -20,7 +20,7 @@ export const App = () => {
   const [responseUrl, setResponseUrl] = useState<string>('');
   const [slackId, setSlackId] = useState<string>('');
   const [recordedBlob, setRecordedBlob] = useState<any>();
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const { sender, p1, p2, p3 } = returnParsedParams();
@@ -42,16 +42,17 @@ export const App = () => {
   };
 
   const returnBlobURL = () => {
+    // eslint-disable-next-line no-prototype-builtins
     if (recordedBlob && recordedBlob.hasOwnProperty('blobURL')) {
-      return recordedBlob.blobURL
+      return recordedBlob.blobURL;
     }
-  }
+  };
 
   return (
     <div className={styles.app}>
       <Header currentRecordingStatus={currentRecordingStatus} />
       <div className={styles.container}>
-        <PlayButton 
+        <PlayButton
           currentRecordingStatus={currentRecordingStatus}
           setIsPlaying={setIsPlaying}
         />
@@ -70,7 +71,11 @@ export const App = () => {
         currentRecordingStatus={currentRecordingStatus}
         saveBlob={saveRecordedBlob}
       />
-      <Player url={returnBlobURL()} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
+      <Player
+        url={returnBlobURL()}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+      />
     </div>
   );
 };
