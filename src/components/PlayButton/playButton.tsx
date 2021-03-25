@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './playButton.module.css';
 import { IconContext } from 'react-icons';
 import { FiPlay } from 'react-icons/fi';
-
 
 import { RecordingStatus } from '../App/App';
 
 interface Props {
   currentRecordingStatus: RecordingStatus;
-  setIsPlaying: (arg: boolean) => void
+  setIsPlaying: (arg: boolean) => void;
 }
 
-export const PlayButton = ({
-  currentRecordingStatus,
-  setIsPlaying
-}: Props) => {
-
-    const handlePlay = () => {
-        setIsPlaying(true)
-    };
+export const PlayButton = ({ currentRecordingStatus, setIsPlaying }: Props) => {
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
 
   if (currentRecordingStatus === 'recorded') {
     return (
