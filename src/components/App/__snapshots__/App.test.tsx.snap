@@ -41,6 +41,11 @@ Object {
           </button>
         </div>
         
+        <div>
+          <div
+            style="width: 640px; height: 360px;"
+          />
+        </div>
       </div>
     </div>
   </body>,
@@ -81,6 +86,11 @@ Object {
         </button>
       </div>
       
+      <div>
+        <div
+          style="width: 640px; height: 360px;"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
