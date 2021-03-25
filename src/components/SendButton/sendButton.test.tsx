@@ -3,8 +3,11 @@ import { render, fireEvent, act, screen } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 
-import { REACT_APP_BACKEND_GRAPHQL_ENDPOINT } from '../../envVarConfig';
 import { SendButton } from './sendButton';
+import { sendFile } from '../../utils/sendFile';
+
+jest.mock('../../utils/sendFile');
+jest.mock('axios');
 
 describe('Button', () => {
   it('displays send button after recording', () => {
@@ -43,12 +46,7 @@ describe('Button', () => {
     expect(wrapper.text()).not.toContain('send');
   });
 
-  it('sends a post request to AWS', async () => {
-    axios.post = jest.fn().mockResolvedValue({
-      data: {
-        url: 'testAudioUrl',
-      },
-    });
+  it('sends a post request to AWS and to backend', async () => {
     render(
       <SendButton
         currentRecordingStatus={'recorded'}
@@ -62,17 +60,7 @@ describe('Button', () => {
       fireEvent.click(screen.getByText('send'));
     });
 
-    setImmediate(() => {
-      expect(axios.post).toHaveBeenCalledTimes(2);
-      expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
-      expect(axios.post).toHaveBeenCalledWith(
-        `${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`,
-        {
-          slackId: '',
-          responseUrl: '',
-          audioUrl: 'testAudioUrl',
-        }
-      );
-    });
+    expect(sendFile).toHaveBeenCalledTimes(1);
+    expect(axios.post).toHaveBeenCalledTimes(1);
   });
 });
