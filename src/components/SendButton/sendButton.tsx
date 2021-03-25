@@ -4,7 +4,10 @@ import { IconContext } from 'react-icons';
 import { FiArrowRight } from 'react-icons/fi';
 import axios from 'axios';
 
-import { REACT_APP_BACKEND_GRAPHQL_ENDPOINT, REACT_APP_AWS_ENDPOINT } from '../../envVarConfig';
+import {
+  REACT_APP_BACKEND_GRAPHQL_ENDPOINT,
+  REACT_APP_AWS_ENDPOINT,
+} from '../../envVarConfig';
 import { sendFile } from '../../utils/sendFile';
 import { RecordingStatus } from '../App/App';
 
@@ -32,26 +35,24 @@ export const SendButton = ({
   };
 
   const sendToAWS = async () => {
-    const keyName = `${slackId}@${Date.now()}.wav`
-    const s3ObjectUrl = `${REACT_APP_AWS_ENDPOINT + "/" + keyName}`
+    const keyName = `${slackId}@${Date.now()}.wav`;
+    const s3ObjectUrl = `${REACT_APP_AWS_ENDPOINT + '/' + keyName}`;
     try {
-      await sendFile(recordedBlob, slackId, keyName);
-      setAudioUrl(s3ObjectUrl)
-      
+      sendFile(recordedBlob, slackId, keyName);
+      setAudioUrl(s3ObjectUrl);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    console.log(audioUrl)
     const sendToBackEnd = async () => {
       await axios.post(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
-       query: `mutation {
+        query: `mutation {
         createNote(slackID: "${slackId}", responseUrl: "${responseUrl}", audioUrl: "${audioUrl}"){responseUrl}
-      }`
-    })
-  }
+      }`,
+      });
+    };
     if (audioUrl !== '') {
       sendToBackEnd();
     }
