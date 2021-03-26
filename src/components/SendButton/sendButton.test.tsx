@@ -4,9 +4,9 @@ import { shallow } from 'enzyme';
 import axios from 'axios';
 
 import { SendButton } from './sendButton';
-import { sendFile } from '../../utils/sendFile';
+import { sendFileToCloud } from '../../utils/sendFileToCloud';
 
-jest.mock('../../utils/sendFile');
+jest.mock('../../utils/sendFileToCloud');
 jest.mock('axios');
 
 describe('Button', () => {
@@ -60,7 +60,7 @@ describe('Button', () => {
       fireEvent.click(screen.getByText('send'));
     });
 
-    expect(sendFile).toHaveBeenCalledTimes(1);
+    expect(sendFileToCloud).toHaveBeenCalledTimes(1);
     expect(axios.post).toHaveBeenCalledTimes(1);
   });
 });
