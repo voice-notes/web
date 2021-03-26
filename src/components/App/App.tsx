@@ -32,9 +32,9 @@ export const App = () => {
   }, []);
 
   const toggleRecording = () => {
-    if (currentRecordingStatus === 'recording')
-      return setCurrentRecordingStatus('recorded');
-    return setCurrentRecordingStatus('recording');
+    return currentRecordingStatus === 'recording'
+      ? setCurrentRecordingStatus('recorded')
+      : setCurrentRecordingStatus('recording');
   };
 
   const saveRecordedBlob = (blob: any) => {
