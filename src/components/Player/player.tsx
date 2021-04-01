@@ -11,7 +11,7 @@ export const Player = (props: Props) => {
   const { isPlaying, url, setIsPlaying } = props;
 
   return (
-    <div>
+    <div style={{display: 'none'}}>
       <ReactPlayer
         url={url}
         playing={isPlaying}
