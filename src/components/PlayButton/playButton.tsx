@@ -6,16 +6,18 @@ import { FiPlay } from 'react-icons/fi';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
-  currentRecordingStatus: RecordingStatus;
+  recordingStatus: RecordingStatus;
   setIsPlaying: (arg: boolean) => void;
 }
 
-export const PlayButton = ({ currentRecordingStatus, setIsPlaying }: Props) => {
+export const PlayButton = (props: Props) => {
+  const { recordingStatus, setIsPlaying } = props;
+
   const handlePlay = () => {
     setIsPlaying(true);
   };
 
-  if (currentRecordingStatus === 'recorded') {
+  if (recordingStatus === 'recorded') {
     return (
       <button className={styles.button} id="play" onClick={handlePlay}>
         <IconContext.Provider value={{ className: styles.icons }}>
