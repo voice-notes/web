@@ -10,16 +10,13 @@ describe('Timer', () => {
   });
   it('is defaulted to 00:00', () => {
     const wrapper = shallow(
-      <Timer currentRecordingStatus={'ready'} recordingExists={false}></Timer>
+      <Timer recordingStatus={'ready'} recordingExists={false}></Timer>
     );
     expect(wrapper.text()).toContain('00:00');
   });
   it('is displays 00:01 after 1 second of the first recording', async () => {
     render(
-      <Timer
-        currentRecordingStatus={'recording'}
-        recordingExists={false}
-      ></Timer>
+      <Timer recordingStatus={'recording'} recordingExists={false}></Timer>
     );
     act(() => {
       jest.advanceTimersByTime(1000);
@@ -30,27 +27,21 @@ describe('Timer', () => {
   });
   it('it resets before rerecording', async () => {
     const { rerender } = render(
-      <Timer
-        currentRecordingStatus={'recording'}
-        recordingExists={false}
-      ></Timer>
+      <Timer recordingStatus={'recording'} recordingExists={false}></Timer>
     );
     act(() => {
       jest.advanceTimersByTime(3000);
     });
     expect(screen.getByTestId('timeDisplay').textContent).toContain('00:03');
     rerender(
-      <Timer currentRecordingStatus={'recorded'} recordingExists={true}></Timer>
+      <Timer recordingStatus={'recorded'} recordingExists={true}></Timer>
     );
     act(() => {
       jest.advanceTimersByTime(1000);
     });
     expect(screen.getByTestId('timeDisplay').textContent).toContain('00:03');
     rerender(
-      <Timer
-        currentRecordingStatus={'recording'}
-        recordingExists={true}
-      ></Timer>
+      <Timer recordingStatus={'recording'} recordingExists={true}></Timer>
     );
     expect(screen.getByTestId('timeDisplay').textContent).toContain('00:00');
     act(() => {
