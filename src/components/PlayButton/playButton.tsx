@@ -19,12 +19,14 @@ export const PlayButton = (props: Props) => {
 
   if (recordingStatus === 'recorded') {
     return (
-      <button className={styles.button} id="play" onClick={handlePlay}>
-        <IconContext.Provider value={{ className: styles.icons }}>
-          <FiPlay />
-        </IconContext.Provider>
-        <span className={styles.text}>play</span>
-      </button>
+      <div className='buttonContainer'>
+        <span className='text'>play</span>
+        <button className='button' id="play" onClick={handlePlay}>
+          <IconContext.Provider value={{ className: styles.icon }}>
+            <FiPlay />
+          </IconContext.Provider>
+        </button>
+      </div>
     );
   } else {
     return null;

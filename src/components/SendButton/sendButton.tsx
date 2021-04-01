@@ -39,12 +39,14 @@ export const SendButton = (props: Props) => {
 
   if (recordingStatus === 'recorded') {
     return (
-      <button className={styles.button} id="send" onClick={handleSend}>
-        <IconContext.Provider value={{ className: styles.icons }}>
-          <FiArrowRight />
-        </IconContext.Provider>
-        <span className={styles.text}>send</span>
-      </button>
+      <div className='buttonContainer'>
+         <span className='text'>send</span>
+        <button className='button' id="send" onClick={handleSend}>
+          <IconContext.Provider value={{ className: styles.icon }}>
+            <FiArrowRight />
+          </IconContext.Provider>
+        </button>
+      </div>
     );
   } else {
     return null;

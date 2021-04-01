@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
-import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
+import { FiCircle, FiSquare } from 'react-icons/fi';
 
 import styles from './recordingButton.module.css';
 
@@ -15,34 +15,36 @@ export const RecordingButton = (props: Props) => {
   const returnButtonIcon = () => {
     const iconComponent =
       recordingStatus === 'recording' ? (
-        <TiMediaStopOutline />
+        <FiSquare />
       ) : (
-        <TiMediaRecordOutline />
+        <FiCircle />
       );
     return (
-      <IconContext.Provider value={{ className: styles.icons }}>
+      <IconContext.Provider value={{ className: styles.icon }}>
         {iconComponent}
       </IconContext.Provider>
     );
   };
 
   const returnButtonText = () => {
-    const mediaAction = recordingStatus === 'recording' ? 'Stop' : 'Start';
+    const mediaAction = recordingStatus === 'recording' ? 'Stop' : 'Record';
     if (recordingStatus === 'recorded') {
-      return <span className={styles.text}>Re-record</span>;
+      return <span className='text'>Re-record</span>;
     }
-    return <span className={styles.text}>{mediaAction} recording</span>;
+    return <span className='text'>{mediaAction}</span>;
   };
 
   const { onClickRecord, recordingStatus } = props;
   return (
-    <button
-      className={styles.button}
-      id="record"
-      onClick={() => onClickRecord()}
-    >
-      {returnButtonIcon()}
+    <div className='buttonContainer'>
       {returnButtonText()}
-    </button>
+      <button
+        className='button'
+        id="record"
+        onClick={() => onClickRecord()}
+      >
+        {returnButtonIcon()}
+      </button>
+    </div>
   );
 };
