@@ -7,7 +7,9 @@ interface Props {
   isPlaying: boolean;
 }
 
-export const Player = ({ isPlaying, url, setIsPlaying }: Props) => {
+export const Player = (props: Props) => {
+  const { isPlaying, url, setIsPlaying } = props;
+
   return (
     <div>
       <ReactPlayer
