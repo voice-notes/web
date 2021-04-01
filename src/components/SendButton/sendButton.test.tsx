@@ -13,7 +13,7 @@ describe('Button', () => {
   it('displays send button after recording', () => {
     const wrapper = shallow(
       <SendButton
-        currentRecordingStatus={'recorded'}
+        recordingStatus={'recorded'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
@@ -25,7 +25,7 @@ describe('Button', () => {
   it('does not display send button before recording', () => {
     const wrapper = shallow(
       <SendButton
-        currentRecordingStatus={'ready'}
+        recordingStatus={'ready'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
@@ -37,7 +37,7 @@ describe('Button', () => {
   it('does not display send button during recording', () => {
     const wrapper = shallow(
       <SendButton
-        currentRecordingStatus={'recording'}
+        recordingStatus={'recording'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
@@ -49,7 +49,7 @@ describe('Button', () => {
   it('sends a post request to AWS and to backend', async () => {
     render(
       <SendButton
-        currentRecordingStatus={'recorded'}
+        recordingStatus={'recorded'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
