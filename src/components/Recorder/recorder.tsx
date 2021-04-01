@@ -6,11 +6,13 @@ import styles from './recorder.module.css';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
-  currentRecordingStatus: RecordingStatus;
+  recordingStatus: RecordingStatus;
   saveBlob: (blob: any) => void;
 }
 
-export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
+export const Recorder = (props: Props) => {
+  const { recordingStatus, saveBlob } = props;
+
   const [recordingExists, setRecordingExists] = useState<boolean>(false);
 
   const onData = (recordedBlob: any) => {
@@ -24,7 +26,7 @@ export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
   };
 
   const isRecording = () => {
-    return currentRecordingStatus === 'recording';
+    return recordingStatus === 'recording';
   };
 
   return (
@@ -38,7 +40,7 @@ export const Recorder = ({ currentRecordingStatus, saveBlob }: Props) => {
         mimeType="audio/wav"
       />
       <Timer
-        currentRecordingStatus={currentRecordingStatus}
+        recordingStatus={recordingStatus}
         recordingExists={recordingExists}
       />
     </div>
