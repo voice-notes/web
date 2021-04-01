@@ -13,14 +13,14 @@ import { REACT_APP_BASE_RES_URL } from '../../envVarConfig';
 export type RecordingStatus = 'ready' | 'recording' | 'recorded';
 
 export const App = () => {
-  const [currentRecordingStatus, setCurrentRecordingStatus] = useState<
-    RecordingStatus
-  >('ready');
+  const [recordingStatus, setRecordingStatus] = useState<RecordingStatus>(
+    'ready'
+  );
 
   const [responseUrl, setResponseUrl] = useState<string>('');
   const [slackId, setSlackId] = useState<string>('');
-  const [recordedBlob, setRecordedBlob] = useState<any>();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [recordedBlob, setRecordedBlob] = useState<any>({});
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   useEffect(() => {
     const { sender, p1, p2, p3 } = returnParsedParams();
@@ -32,9 +32,8 @@ export const App = () => {
   }, []);
 
   const toggleRecording = () => {
-    return currentRecordingStatus === 'recording'
-      ? setCurrentRecordingStatus('recorded')
-      : setCurrentRecordingStatus('recording');
+    if (recordingStatus === 'recording') return setRecordingStatus('recorded');
+    return setRecordingStatus('recording');
   };
 
   const saveRecordedBlob = (blob: any) => {
@@ -42,35 +41,31 @@ export const App = () => {
   };
 
   const returnBlobURL = () => {
-    // eslint-disable-next-line no-prototype-builtins
-    if (recordedBlob && recordedBlob.hasOwnProperty('blobURL')) {
+    if (recordedBlob.blobURL !== undefined) {
       return recordedBlob.blobURL;
     }
   };
 
   return (
     <div className={styles.app}>
-      <Header currentRecordingStatus={currentRecordingStatus} />
+      <Header recordingStatus={recordingStatus} />
       <div className={styles.container}>
         <PlayButton
-          currentRecordingStatus={currentRecordingStatus}
+          recordingStatus={recordingStatus}
           setIsPlaying={setIsPlaying}
         />
         <RecordingButton
-          currentRecordingStatus={currentRecordingStatus}
+          recordingStatus={recordingStatus}
           onClickRecord={() => toggleRecording()}
         />
         <SendButton
-          currentRecordingStatus={currentRecordingStatus}
+          recordingStatus={recordingStatus}
           slackId={slackId}
           responseUrl={responseUrl}
           recordedBlob={recordedBlob}
         />
       </div>
-      <Recorder
-        currentRecordingStatus={currentRecordingStatus}
-        saveBlob={saveRecordedBlob}
-      />
+      <Recorder recordingStatus={recordingStatus} saveBlob={saveRecordedBlob} />
       <Player
         url={returnBlobURL()}
         isPlaying={isPlaying}
