@@ -5,7 +5,7 @@ import { Recorder } from './recorder';
 describe('Recorder', () => {
   it('renders App', () => {
     const container = render(
-      <Recorder currentRecordingStatus={'ready'} saveBlob={jest.fn()} />
+      <Recorder recordingStatus={'ready'} saveBlob={jest.fn()} />
     );
     expect(container).toMatchSnapshot();
   });
