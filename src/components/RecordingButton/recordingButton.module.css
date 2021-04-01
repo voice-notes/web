@@ -1,22 +1,7 @@
-.button {
-  background-color: var(--darkest-color);
-  border-radius: 50px 50px 0 0;
-  display: flex;
-  font-family: var(--primary-font);
-  padding: 7.5px;
-  text-align: center;
-  width: 200px;
-}
-
-.icons {
+.icon {
   border: 0;
   color: #bd200c;
-  font-size: 3.4rem;
-  margin: 0;
+  font-size: 2.2rem;
+  margin: auto;
   padding: 0;
-}
-
-.text {
-  margin-right: 5px;
-  margin-top: 20px;
 }
