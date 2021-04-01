@@ -9,18 +9,15 @@ import { sendToBackEnd } from '../../utils/sendToBackEnd';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
-  currentRecordingStatus: RecordingStatus;
+  recordingStatus: RecordingStatus;
   slackId: string;
   responseUrl: string;
   recordedBlob: any;
 }
 
-export const SendButton = ({
-  currentRecordingStatus,
-  slackId,
-  responseUrl,
-  recordedBlob,
-}: Props) => {
+export const SendButton = (props: Props) => {
+  const { recordingStatus, slackId, responseUrl, recordedBlob } = props;
+
   const [audioUrl, setAudioUrl] = useState<string>('');
 
   const handleSend = async () => {
@@ -40,7 +37,7 @@ export const SendButton = ({
     }
   }, [audioUrl, slackId, responseUrl]);
 
-  if (currentRecordingStatus === 'recorded') {
+  if (recordingStatus === 'recorded') {
     return (
       <button className={styles.button} id="send" onClick={handleSend}>
         <IconContext.Provider value={{ className: styles.icons }}>
