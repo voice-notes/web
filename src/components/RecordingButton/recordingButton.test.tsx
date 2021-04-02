@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { RecordingButton } from './recordingButton';
-import { TiMediaRecordOutline, TiMediaStopOutline } from 'react-icons/ti';
+import { FiCircle, FiSquare } from 'react-icons/fi';
 
 describe('Button', () => {
   const mockToggleRecording = jest.fn();
@@ -15,10 +15,8 @@ describe('Button', () => {
         }}
       />
     );
-    expect(wrapper.containsMatchingElement(<TiMediaRecordOutline />)).toEqual(
-      true
-    );
-    expect(wrapper.text()).toContain('Start recording');
+    expect(wrapper.containsMatchingElement(<FiCircle />)).toEqual(true);
+    expect(wrapper.text()).toContain('Record');
   });
 
   it('renders correctly when recording status is recording', () => {
@@ -30,10 +28,8 @@ describe('Button', () => {
         }}
       />
     );
-    expect(wrapper.containsMatchingElement(<TiMediaStopOutline />)).toEqual(
-      true
-    );
-    expect(wrapper.text()).toContain('Stop recording');
+    expect(wrapper.containsMatchingElement(<FiSquare />)).toEqual(true);
+    expect(wrapper.text()).toContain('Stop');
   });
 
   it('renders correctly when recording status is not recording', () => {
@@ -45,9 +41,7 @@ describe('Button', () => {
         }}
       />
     );
-    expect(wrapper.containsMatchingElement(<TiMediaRecordOutline />)).toEqual(
-      true
-    );
+    expect(wrapper.containsMatchingElement(<FiCircle />)).toEqual(true);
     expect(wrapper.text()).toContain('Re-record');
   });
 
