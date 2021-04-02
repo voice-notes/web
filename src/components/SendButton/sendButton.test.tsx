@@ -1,10 +1,10 @@
 import React from 'react';
-import { render, fireEvent, act, screen } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 
 import { SendButton } from './sendButton';
-import { sendFileToCloud } from '../../utils/sendFileToCloud';
+import { sendFileToCloud } from '../../utils/index';
 
 jest.mock('../../utils/sendFileToCloud');
 jest.mock('axios');
@@ -47,7 +47,7 @@ describe('Button', () => {
   });
 
   it('sends a post request to AWS and to backend', async () => {
-    render(
+    const { getByTestId } = render(
       <SendButton
         recordingStatus={'recorded'}
         slackId={''}
@@ -57,7 +57,7 @@ describe('Button', () => {
     );
 
     await act(async () => {
-      fireEvent.click(screen.getByText('send'));
+      fireEvent.click(getByTestId('sendButton'));
     });
 
     expect(sendFileToCloud).toHaveBeenCalledTimes(1);
