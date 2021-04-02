@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import styles from './timer.module.css';
 import { RecordingStatus } from '../App/App';
 interface Props {
-  currentRecordingStatus: RecordingStatus;
+  recordingStatus: RecordingStatus;
   recordingExists: boolean;
 }
 
-export const Timer = ({ currentRecordingStatus, recordingExists }: Props) => {
+export const Timer = (props: Props) => {
+  const { recordingStatus, recordingExists } = props;
+
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hasReset, setHasReset] = useState<boolean>(false);
@@ -21,7 +23,7 @@ export const Timer = ({ currentRecordingStatus, recordingExists }: Props) => {
 
   useEffect(() => {
     let interval: any;
-    if (currentRecordingStatus === 'recording') {
+    if (recordingStatus === 'recording') {
       if (recordingExists && !hasReset) {
         resetTimer();
         setHasReset(true);
@@ -29,7 +31,7 @@ export const Timer = ({ currentRecordingStatus, recordingExists }: Props) => {
       interval = setInterval(() => {
         setTime();
       }, 1000);
-    } else if (currentRecordingStatus === 'recorded' && seconds !== 0) {
+    } else if (recordingStatus === 'recorded' && seconds !== 0) {
       clearInterval(interval);
       setHasReset(false);
     }
@@ -42,7 +44,7 @@ export const Timer = ({ currentRecordingStatus, recordingExists }: Props) => {
     };
 
     return () => clearInterval(interval);
-  }, [currentRecordingStatus, seconds, hasReset, recordingExists]);
+  }, [recordingStatus, seconds, hasReset, recordingExists]);
 
   return (
     <div data-testid="timeDisplay" className={styles.timer}>

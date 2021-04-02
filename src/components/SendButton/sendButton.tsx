@@ -2,65 +2,55 @@ import React, { useEffect, useState } from 'react';
 import styles from './sendButton.module.css';
 import { IconContext } from 'react-icons';
 import { FiArrowRight } from 'react-icons/fi';
-import axios from 'axios';
 
-import { REACT_APP_BACKEND_GRAPHQL_ENDPOINT } from '../../envVarConfig';
+import { REACT_APP_AWS_ENDPOINT } from '../../envVarConfig';
+import { sendFileToCloud, sendToBackEnd } from '../../utils/index';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
-  currentRecordingStatus: RecordingStatus;
+  recordingStatus: RecordingStatus;
   slackId: string;
   responseUrl: string;
   recordedBlob: any;
 }
 
-export const SendButton = ({
-  currentRecordingStatus,
-  slackId,
-  responseUrl,
-  recordedBlob,
-}: Props) => {
+export const SendButton = (props: Props) => {
+  const { recordingStatus, slackId, responseUrl, recordedBlob } = props;
+
   const [audioUrl, setAudioUrl] = useState<string>('');
 
   const handleSend = async () => {
+    const keyName = `${slackId}@${Date.now()}.wav`;
+    const s3ObjectUrl = `${REACT_APP_AWS_ENDPOINT}/${keyName}`;
     try {
-      sendToAWS();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const sendToAWS = async () => {
-    try {
-      const response = await axios.post('AWS url', { blob: recordedBlob });
-      const { url } = response.data;
-      setAudioUrl(url);
+      sendFileToCloud(recordedBlob, keyName);
+      setAudioUrl(s3ObjectUrl);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    const sendToBackEnd = async () => {
-      await axios.post(`${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`, {
-        slackId: slackId,
-        responseUrl: responseUrl,
-        audioUrl: audioUrl,
-      });
-    };
     if (audioUrl !== '') {
-      sendToBackEnd();
+      sendToBackEnd(slackId, responseUrl, audioUrl);
     }
   }, [audioUrl, slackId, responseUrl]);
 
-  if (currentRecordingStatus === 'recorded') {
+  if (recordingStatus === 'recorded') {
     return (
-      <button className={styles.button} id="send" onClick={handleSend}>
-        <IconContext.Provider value={{ className: styles.icons }}>
-          <FiArrowRight />
-        </IconContext.Provider>
-        <span className={styles.text}>send</span>
-      </button>
+      <div className="buttonContainer">
+        <span className="buttonLabelText">send</span>
+        <button
+          className="button"
+          id="send"
+          data-testid="sendButton"
+          onClick={handleSend}
+        >
+          <IconContext.Provider value={{ className: styles.icon }}>
+            <FiArrowRight />
+          </IconContext.Provider>
+        </button>
+      </div>
     );
   } else {
     return null;

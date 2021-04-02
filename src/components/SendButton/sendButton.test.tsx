@@ -1,16 +1,19 @@
 import React from 'react';
-import { render, fireEvent, act, screen } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 
-import { REACT_APP_BACKEND_GRAPHQL_ENDPOINT } from '../../envVarConfig';
 import { SendButton } from './sendButton';
+import { sendFileToCloud } from '../../utils/index';
+
+jest.mock('../../utils/sendFileToCloud');
+jest.mock('axios');
 
 describe('Button', () => {
   it('displays send button after recording', () => {
     const wrapper = shallow(
       <SendButton
-        currentRecordingStatus={'recorded'}
+        recordingStatus={'recorded'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
@@ -22,7 +25,7 @@ describe('Button', () => {
   it('does not display send button before recording', () => {
     const wrapper = shallow(
       <SendButton
-        currentRecordingStatus={'ready'}
+        recordingStatus={'ready'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
@@ -34,7 +37,7 @@ describe('Button', () => {
   it('does not display send button during recording', () => {
     const wrapper = shallow(
       <SendButton
-        currentRecordingStatus={'recording'}
+        recordingStatus={'recording'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
@@ -43,15 +46,10 @@ describe('Button', () => {
     expect(wrapper.text()).not.toContain('send');
   });
 
-  it('sends a post request to AWS', async () => {
-    axios.post = jest.fn().mockResolvedValue({
-      data: {
-        url: 'testAudioUrl',
-      },
-    });
-    render(
+  it('sends a post request to AWS and to backend', async () => {
+    const { getByTestId } = render(
       <SendButton
-        currentRecordingStatus={'recorded'}
+        recordingStatus={'recorded'}
         slackId={''}
         responseUrl={''}
         recordedBlob={''}
@@ -59,20 +57,10 @@ describe('Button', () => {
     );
 
     await act(async () => {
-      fireEvent.click(screen.getByText('send'));
+      fireEvent.click(getByTestId('sendButton'));
     });
 
-    setImmediate(() => {
-      expect(axios.post).toHaveBeenCalledTimes(2);
-      expect(axios.post).toHaveBeenCalledWith('AWS url', { blob: '' });
-      expect(axios.post).toHaveBeenCalledWith(
-        `${REACT_APP_BACKEND_GRAPHQL_ENDPOINT}`,
-        {
-          slackId: '',
-          responseUrl: '',
-          audioUrl: 'testAudioUrl',
-        }
-      );
-    });
+    expect(sendFileToCloud).toHaveBeenCalledTimes(1);
+    expect(axios.post).toHaveBeenCalledTimes(1);
   });
 });

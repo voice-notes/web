@@ -1,27 +1,42 @@
 import React from 'react';
+import { IconContext } from 'react-icons';
+import { FiCircle, FiSquare } from 'react-icons/fi';
+
 import styles from './recordingButton.module.css';
 
 import { RecordingStatus } from '../App/App';
-import { RecordingButtonText } from '../RecordingButtonText/recordingButtonText';
-import { RecordingButtonIcon } from '../RecordingButtonIcon/recordingButtonIcon';
 
-interface ButtonProps {
+interface Props {
   onClickRecord: () => void;
-  currentRecordingStatus: RecordingStatus;
+  recordingStatus: RecordingStatus;
 }
 
-export const RecordingButton = ({
-  onClickRecord,
-  currentRecordingStatus,
-}: ButtonProps) => {
+export const RecordingButton = (props: Props) => {
+  const returnButtonIcon = () => {
+    const iconComponent =
+      recordingStatus === 'recording' ? <FiSquare /> : <FiCircle />;
+    return (
+      <IconContext.Provider value={{ className: styles.icon }}>
+        {iconComponent}
+      </IconContext.Provider>
+    );
+  };
+
+  const returnButtonText = () => {
+    const mediaAction = recordingStatus === 'recording' ? 'Stop' : 'Record';
+    if (recordingStatus === 'recorded') {
+      return <span className="buttonLabelText">Re-record</span>;
+    }
+    return <span className="buttonLabelText">{mediaAction}</span>;
+  };
+
+  const { onClickRecord, recordingStatus } = props;
   return (
-    <button
-      className={styles.button}
-      id="record"
-      onClick={() => onClickRecord()}
-    >
-      <RecordingButtonIcon currentRecordingStatus={currentRecordingStatus} />
-      <RecordingButtonText currentRecordingStatus={currentRecordingStatus} />
-    </button>
+    <div className="buttonContainer">
+      {returnButtonText()}
+      <button className="button" id="record" onClick={() => onClickRecord()}>
+        {returnButtonIcon()}
+      </button>
+    </div>
   );
 };
