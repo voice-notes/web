@@ -14,11 +14,7 @@ interface Props {
 export const RecordingButton = (props: Props) => {
   const returnButtonIcon = () => {
     const iconComponent =
-      recordingStatus === 'recording' ? (
-        <FiSquare />
-      ) : (
-        <FiCircle />
-      );
+      recordingStatus === 'recording' ? <FiSquare /> : <FiCircle />;
     return (
       <IconContext.Provider value={{ className: styles.icon }}>
         {iconComponent}
@@ -29,20 +25,16 @@ export const RecordingButton = (props: Props) => {
   const returnButtonText = () => {
     const mediaAction = recordingStatus === 'recording' ? 'Stop' : 'Record';
     if (recordingStatus === 'recorded') {
-      return <span className='text'>Re-record</span>;
+      return <span className="buttonLabelText">Re-record</span>;
     }
-    return <span className='text'>{mediaAction}</span>;
+    return <span className="buttonLabelText">{mediaAction}</span>;
   };
 
   const { onClickRecord, recordingStatus } = props;
   return (
-    <div className='buttonContainer'>
+    <div className="buttonContainer">
       {returnButtonText()}
-      <button
-        className='button'
-        id="record"
-        onClick={() => onClickRecord()}
-      >
+      <button className="button" id="record" onClick={() => onClickRecord()}>
         {returnButtonIcon()}
       </button>
     </div>
