@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import { Player } from '../Player/player';
-import { Header } from '../Header/header';
-import { Recorder } from '../Recorder/recorder';
-import { RecordingButton } from '../RecordingButton/recordingButton';
-import { SendButton } from '../SendButton/sendButton';
-import { PlayButton } from '../PlayButton/playButton';
-import { returnParsedParams } from '../../utils/returnParsedParams';
+import {
+  Header,
+  Player,
+  PlayButton,
+  Recorder,
+  RecordingButton,
+  SendButton,
+} from '../index';
+import { returnParsedParams } from '../../utils/index';
 import styles from './App.module.css';
 import { REACT_APP_BASE_RES_URL } from '../../envVarConfig';
 
