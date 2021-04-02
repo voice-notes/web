@@ -45,20 +45,20 @@ code {
   background-color: var(--darkest-color);
   border-radius: 20px 20px 0 0;
   display: flex;
-  padding: 7.5px;
-  margin-top: 5px;
-  width: 100%;
   height: 63px;
+  margin-top: 5px;
+  padding: 7.5px;
+  width: 100%;
 }
 
 .buttonContainer {
-  width: 100px;
   height: 90px;
-  text-align: center;
   margin-left: 7px;
   margin-right: 7px;
+  text-align: center;
+  width: 100px;
 }
 
-.text {
+.buttonLabelText {
   font-family: var(--primary-font);
 }
