@@ -4,8 +4,7 @@ import { IconContext } from 'react-icons';
 import { FiArrowRight } from 'react-icons/fi';
 
 import { REACT_APP_AWS_ENDPOINT } from '../../envVarConfig';
-import { sendFileToCloud } from '../../utils/sendFileToCloud';
-import { sendToBackEnd } from '../../utils/sendToBackEnd';
+import { sendFileToCloud, sendToBackEnd } from '../../utils/index';
 import { RecordingStatus } from '../App/App';
 
 interface Props {
@@ -39,9 +38,14 @@ export const SendButton = (props: Props) => {
 
   if (recordingStatus === 'recorded') {
     return (
-      <div className='buttonContainer'>
-         <span className='text'>send</span>
-        <button className='button' id="send" onClick={handleSend}>
+      <div className="buttonContainer">
+        <span className="buttonLabelText">send</span>
+        <button
+          className="button"
+          id="send"
+          data-testid="sendButton"
+          onClick={handleSend}
+        >
           <IconContext.Provider value={{ className: styles.icon }}>
             <FiArrowRight />
           </IconContext.Provider>
