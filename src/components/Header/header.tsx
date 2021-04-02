@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Title } from '../Title/title';
-import { RecordingStatusText } from '../RecordingStatusText/recordingStatusText';
+import { RecordingStatusText, Title } from '../index';
 import styles from './header.module.css';
 import { ReactComponent as TapeLogo } from '../../assets/tape.svg';
 import { RecordingStatus } from '../App/App';
